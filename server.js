@@ -82,7 +82,7 @@ app.get("/manage-users", async (req, res) => {
         const usersData = await fs.readFile(usersFilePath, "utf-8");
         const users = JSON.parse(usersData);
 
-        res.render("manage-users", { users });
+        res.render("manage-users", { users, error: null });
     } catch (error) {
         console.error("ユーザー一覧の読み込みエラー:", error);
         res.status(500).send("エラーが発生しました");
@@ -120,6 +120,37 @@ app.post("/add-user", async (req, res) => {
         res.redirect("/manage-users");
     } catch (error) {
         console.error("新規ユーザー登録エラー:", error);
+        res.status(500).send("エラーが発生しました");
+    }
+});
+
+// **ユーザー削除**
+app.post("/delete-user", async (req, res) => {
+    if (!req.session.userId || req.session.userRole !== "admin") {
+        return res.redirect("/login");
+    }
+
+    const { id } = req.body;
+
+    try {
+        const usersFilePath = path.join(process.cwd(), "data", "users.json");
+        const usersData = await fs.readFile(usersFilePath, "utf-8");
+        let users = JSON.parse(usersData);
+
+        // 自分自身を削除できないようにする
+        if (id === req.session.userId) {
+            return res.render("manage-users", { users, error: "自分自身は削除できません" });
+        }
+
+        // ユーザー削除処理
+        users = users.filter((user) => user.id !== id);
+
+        // JSONファイルに保存
+        await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), "utf-8");
+
+        res.redirect("/manage-users");
+    } catch (error) {
+        console.error("ユーザー削除エラー:", error);
         res.status(500).send("エラーが発生しました");
     }
 });

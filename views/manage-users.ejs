@@ -38,6 +38,7 @@
         <th>ID</th>
         <th>名前</th>
         <th>権限</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,12 @@
             <td><%= user.id %></td>
             <td><%= user.name %></td>
             <td><%= user.role %></td>
+            <td>
+                <form action="/delete-user" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                    <input type="hidden" name="id" value="<%= user.id %>">
+                    <button type="submit">削除</button>
+                </form>
+            </td>
         </tr>
     <% }) %>
     </tbody>
