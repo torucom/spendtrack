@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン - SpendTrack</title>
+</head>
+<body>
+<h1>ログイン</h1>
+<% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+<form action="/login" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required>
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">ログイン</button>
+</form>
+</body>
+</html>
