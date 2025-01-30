@@ -1,15 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
 import session from "express-session";
-import dotenv from "dotenv";
-import fs from "fs/promises";
+import fs from "fs";
 import path from "path";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const USERS_FILE = "./data/users.json";
+const EXPENSES_FILE = "./data/expenses.json";
 
 // ミドルウェア
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,7 +28,25 @@ app.use(
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "views"));
 
-// ログインページ
+// ユーザーデータを読み込む関数
+const loadUsers = () => {
+    try {
+        return JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
+    } catch (error) {
+        return [];
+    }
+};
+
+// 経費データを読み込む関数
+const loadExpenses = () => {
+    try {
+        return JSON.parse(fs.readFileSync(EXPENSES_FILE, "utf8"));
+    } catch (error) {
+        return [];
+    }
+};
+
+// ログイン画面
 app.get("/login", (req, res) => {
     res.render("login", { error: null });
 });
@@ -34,26 +54,17 @@ app.get("/login", (req, res) => {
 // ログイン処理
 app.post("/login", async (req, res) => {
     const { id, password } = req.body;
-    try {
-        const usersFilePath = path.join(process.cwd(), "data", "users.json");
-        const usersData = await fs.readFile(usersFilePath, "utf-8");
-        const users = JSON.parse(usersData);
+    const users = loadUsers();
+    const user = users.find((user) => user.id === id);
 
-        const user = users.find((u) => u.id === id);
-
-        if (!user || !(await bcrypt.compare(password, user.password))) {
-            return res.render("login", { error: "ユーザーIDまたはパスワードが違います" });
-        }
-
-        req.session.userId = user.id;
-        req.session.userName = user.name;
-        req.session.userRole = user.role || "user";
-
-        res.redirect("/");
-    } catch (error) {
-        console.error("ログイン処理エラー:", error);
-        res.status(500).send("エラーが発生しました");
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+        return res.render("login", { error: "ログインIDまたはパスワードが間違っています。" });
     }
+
+    req.session.userId = user.id;
+    req.session.userName = user.name;
+    req.session.role = user.role || "user";
+    res.redirect("/");
 });
 
 // ログアウト処理
@@ -63,96 +74,22 @@ app.post("/logout", (req, res) => {
     });
 });
 
-// ホームページ
+// ユーザー管理画面（管理者のみ）
+app.get("/manage-users", (req, res) => {
+    if (req.session.role !== "admin") {
+        return res.redirect("/");
+    }
+    const users = loadUsers();
+    res.render("manage-users", { users });
+});
+
+// ホーム画面（経費一覧）
 app.get("/", (req, res) => {
     if (!req.session.userId) {
         return res.redirect("/login");
     }
-    res.render("index", { userName: req.session.userName || "ゲスト" });
-});
-
-// ユーザー管理ページ（管理者のみ）
-app.get("/manage-users", async (req, res) => {
-    if (!req.session.userId || req.session.userRole !== "admin") {
-        return res.redirect("/login");
-    }
-
-    try {
-        const usersFilePath = path.join(process.cwd(), "data", "users.json");
-        const usersData = await fs.readFile(usersFilePath, "utf-8");
-        const users = JSON.parse(usersData);
-
-        res.render("manage-users", { users, error: null });
-    } catch (error) {
-        console.error("ユーザー一覧の読み込みエラー:", error);
-        res.status(500).send("エラーが発生しました");
-    }
-});
-
-// **新規ユーザー登録**
-app.post("/add-user", async (req, res) => {
-    if (!req.session.userId || req.session.userRole !== "admin") {
-        return res.redirect("/login");
-    }
-
-    const { id, name, password, role } = req.body;
-
-    try {
-        const usersFilePath = path.join(process.cwd(), "data", "users.json");
-        const usersData = await fs.readFile(usersFilePath, "utf-8");
-        let users = JSON.parse(usersData);
-
-        // ID重複チェック
-        if (users.find((u) => u.id === id)) {
-            return res.render("manage-users", { users, error: "このIDは既に存在しています" });
-        }
-
-        // パスワードをハッシュ化
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // 新しいユーザーを追加
-        const newUser = { id, name, password: hashedPassword, role };
-        users.push(newUser);
-
-        // JSONファイルに保存
-        await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), "utf-8");
-
-        res.redirect("/manage-users");
-    } catch (error) {
-        console.error("新規ユーザー登録エラー:", error);
-        res.status(500).send("エラーが発生しました");
-    }
-});
-
-// **ユーザー削除**
-app.post("/delete-user", async (req, res) => {
-    if (!req.session.userId || req.session.userRole !== "admin") {
-        return res.redirect("/login");
-    }
-
-    const { id } = req.body;
-
-    try {
-        const usersFilePath = path.join(process.cwd(), "data", "users.json");
-        const usersData = await fs.readFile(usersFilePath, "utf-8");
-        let users = JSON.parse(usersData);
-
-        // 自分自身を削除できないようにする
-        if (id === req.session.userId) {
-            return res.render("manage-users", { users, error: "自分自身は削除できません" });
-        }
-
-        // ユーザー削除処理
-        users = users.filter((user) => user.id !== id);
-
-        // JSONファイルに保存
-        await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), "utf-8");
-
-        res.redirect("/manage-users");
-    } catch (error) {
-        console.error("ユーザー削除エラー:", error);
-        res.status(500).send("エラーが発生しました");
-    }
+    const expenses = loadExpenses();
+    res.render("index", { user: { name: req.session.userName }, expenses });
 });
 
 // サーバー起動

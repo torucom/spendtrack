@@ -1,14 +1,16 @@
 [
   {
     "id": "admin",
-    "email": "endo-toru@be-quest.co.jp",
+    "email": "admin@spendtrack.com",
     "password": "$2b$10$31HWdCng3VpQky5LcWKjKerZQfc.E.mDNe23vUIfkO0mk5iMrSvyG",
-    "name": "管理者"
+    "name": "管理者",
+    "role": "admin"
   },
   {
     "id": "user",
-    "email": "endo-toru@be-quest.co.jp",
+    "email": "user@spendtrack.com",
     "password": "$2b$10$zRdd3.GBEFT6rzNyCrsJxuo6hW8bsL0k5RsE72sjK0G/v24.Psa3y",
-    "name": "ユーザー"
+    "name": "ユーザー",
+    "role": "user"
   }
 ]

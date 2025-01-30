@@ -2,62 +2,51 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユーザー管理</title>
 </head>
 <body>
 <h1>ユーザー管理</h1>
-
-<h2>新規ユーザー登録</h2>
-<% if (error) { %>
-    <p style="color: red;"><%= error %></p>
-<% } %>
-<form action="/add-user" method="POST">
-    <label for="id">ユーザーID:</label>
-    <input type="text" id="id" name="id" required>
-
-    <label for="name">名前:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="password">パスワード:</label>
-    <input type="password" id="password" name="password" required>
-
-    <label for="role">権限:</label>
-    <select id="role" name="role">
-        <option value="user">一般ユーザー</option>
-        <option value="admin">管理者</option>
-    </select>
-
-    <button type="submit">登録</button>
-</form>
-
-<h2>登録済みユーザー一覧</h2>
+<h2>ユーザー一覧</h2>
 <table border="1">
-    <thead>
     <tr>
         <th>ID</th>
+        <th>メールアドレス</th>
         <th>名前</th>
-        <th>権限</th>
-        <th>操作</th>
+        <th>ロール</th>
+        <th>削除</th>
     </tr>
-    </thead>
-    <tbody>
     <% users.forEach(user => { %>
         <tr>
             <td><%= user.id %></td>
+            <td><%= user.email %></td>
             <td><%= user.name %></td>
             <td><%= user.role %></td>
             <td>
-                <form action="/delete-user" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                <form action="/manage-users/delete" method="POST">
                     <input type="hidden" name="id" value="<%= user.id %>">
                     <button type="submit">削除</button>
                 </form>
             </td>
         </tr>
     <% }) %>
-    </tbody>
 </table>
 
+<h2>新規ユーザー追加</h2>
+<form action="/manage-users/add" method="POST">
+    <label>ID: <input type="text" name="id" required></label><br>
+    <label>メール: <input type="email" name="email" required></label><br>
+    <label>パスワード: <input type="password" name="password" required></label><br>
+    <label>名前: <input type="text" name="name" required></label><br>
+    <label>ロール:
+        <select name="role">
+            <option value="user">ユーザー</option>
+            <option value="admin">管理者</option>
+        </select>
+    </label><br>
+    <button type="submit">追加</button>
+</form>
+
+<br>
 <a href="/">戻る</a>
 </body>
 </html>

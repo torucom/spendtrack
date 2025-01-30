@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpendTrack</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <header>
     <h1>SpendTrack</h1>
-    <p>こんにちは、<%= userName %> さん</p>
+    <p>こんにちは、<%= user.name %> さん</p>
     <form action="/logout" method="POST">
         <button type="submit">ログアウト</button>
     </form>
 </header>
+
+<section>
+    <h2>経費一覧</h2>
+    <% if (!expenses || expenses.length === 0) { %>
+        <p>登録された経費がありません。</p>
+    <% } else { %>
+        <table>
+            <thead>
+            <tr>
+                <th>日付</th>
+                <th>説明</th>
+                <th>金額</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% expenses.forEach(expense => { %>
+                <tr>
+                    <td><%= expense.date %></td>
+                    <td><%= expense.description %></td>
+                    <td><%= expense.amount %>円</td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</section>
 </body>
 </html>
