@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー管理</title>
+</head>
+<body>
+<h1>ユーザー管理</h1>
+
+<h2>新規ユーザー登録</h2>
+<% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+<form action="/add-user" method="POST">
+    <label for="id">ユーザーID:</label>
+    <input type="text" id="id" name="id" required>
+
+    <label for="name">名前:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="password">パスワード:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="role">権限:</label>
+    <select id="role" name="role">
+        <option value="user">一般ユーザー</option>
+        <option value="admin">管理者</option>
+    </select>
+
+    <button type="submit">登録</button>
+</form>
+
+<h2>登録済みユーザー一覧</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>権限</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% users.forEach(user => { %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.role %></td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<a href="/">戻る</a>
+</body>
+</html>
