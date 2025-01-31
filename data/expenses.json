@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "date": "2025-01-31",
+    "description": "test",
+    "amount": 100000,
+    "userId": "admin",
+    "userName": "管理者"
+  },
+  {
+    "date": "2025-01-31",
+    "description": "test2",
+    "amount": 100000,
+    "userId": "admin",
+    "userName": "管理者"
+  }
+]

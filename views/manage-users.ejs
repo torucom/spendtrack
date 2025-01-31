@@ -2,51 +2,79 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ユーザー管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー管理 - SpendTrack</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+        async function deleteUser(userId) {
+            if (!confirm("本当に削除しますか？")) return;
+
+            const response = await fetch("/manage-users/delete", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ userId })
+            });
+
+            if (response.ok) {
+                alert("削除しました");
+                location.reload();
+            } else {
+                alert("削除に失敗しました");
+            }
+        }
+    </script>
 </head>
 <body>
-<h1>ユーザー管理</h1>
-<h2>ユーザー一覧</h2>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>メールアドレス</th>
-        <th>名前</th>
-        <th>ロール</th>
-        <th>削除</th>
-    </tr>
-    <% users.forEach(user => { %>
+<header>
+    <h1>ユーザー管理</h1>
+    <a href="/">ホームに戻る</a>
+</header>
+
+<section>
+    <h2>登録ユーザー</h2>
+    <table>
+        <thead>
         <tr>
-            <td><%= user.id %></td>
-            <td><%= user.email %></td>
-            <td><%= user.name %></td>
-            <td><%= user.role %></td>
-            <td>
-                <form action="/manage-users/delete" method="POST">
-                    <input type="hidden" name="id" value="<%= user.id %>">
-                    <button type="submit">削除</button>
-                </form>
-            </td>
+            <th>ID</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>権限</th>
+            <th>操作</th>
         </tr>
-    <% }) %>
-</table>
+        </thead>
+        <tbody>
+        <% users.forEach(user => { %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+                <td>
+                    <% if (user.id !== "admin") { %>
+                        <button onclick="deleteUser('<%= user.id %>')">削除</button>
+                    <% } else { %>
+                        (管理者)
+                    <% } %>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
 
-<h2>新規ユーザー追加</h2>
-<form action="/manage-users/add" method="POST">
-    <label>ID: <input type="text" name="id" required></label><br>
-    <label>メール: <input type="email" name="email" required></label><br>
-    <label>パスワード: <input type="password" name="password" required></label><br>
-    <label>名前: <input type="text" name="name" required></label><br>
-    <label>ロール:
-        <select name="role">
-            <option value="user">ユーザー</option>
-            <option value="admin">管理者</option>
-        </select>
-    </label><br>
-    <button type="submit">追加</button>
-</form>
-
-<br>
-<a href="/">戻る</a>
+    <h2>新規ユーザー追加</h2>
+    <form action="/manage-users/add" method="POST">
+        <label>ID: <input type="text" name="id" required></label><br>
+        <label>メール: <input type="email" name="email" required></label><br>
+        <label>パスワード: <input type="password" name="password" required></label><br>
+        <label>名前: <input type="text" name="name" required></label><br>
+        <label>ロール:
+            <select name="role">
+                <option value="user">ユーザー</option>
+                <option value="admin">管理者</option>
+            </select>
+        </label><br>
+        <button type="submit">追加</button>
+    </form>
+</section>
 </body>
 </html>

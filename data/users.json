@@ -12,5 +12,19 @@
     "password": "$2b$10$zRdd3.GBEFT6rzNyCrsJxuo6hW8bsL0k5RsE72sjK0G/v24.Psa3y",
     "name": "ユーザー",
     "role": "user"
+  },
+  {
+    "id": "test",
+    "email": "test@spendtrack.com",
+    "password": "$2b$10$5SbFBKtO/hem4KNqcK6jW.L1ZQxUwTpSqBkXeR0hM90L3fqMKEUCq",
+    "name": "test",
+    "role": "user"
+  },
+  {
+    "id": "test2",
+    "email": "test2@spendtrack.com",
+    "password": "$2b$10$fJaGdTj1Bsixwiz/4lxG9exq.RH2c.UgZQG.4Kqipg5PEyQe9aerC",
+    "name": "test2",
+    "role": "user"
   }
 ]
