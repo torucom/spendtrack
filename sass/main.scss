@@ -1,0 +1,21 @@
+// Bulma のパスを設定
+@import "../node_modules/bulma/bulma";
+
+// 変数の上書きを適用
+@import "variables";
+@import "overrides";
+
+// 🎨 ここにカスタムスタイルを書く
+body {
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.button.is-primary {
+  background-color: #3273dc;
+  border: none;
+}

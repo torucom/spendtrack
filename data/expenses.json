@@ -4,13 +4,29 @@
     "description": "test",
     "amount": 100000,
     "userId": "admin",
-    "userName": "管理者"
+    "userName": "管理者",
+    "id": "7d1058e9-a00b-4ac1-a298-3ddfaf2ea382"
   },
   {
     "date": "2025-01-31",
     "description": "test2",
     "amount": 100000,
     "userId": "admin",
-    "userName": "管理者"
+    "userName": "管理者",
+    "id": "2dd1c104-cb86-4fba-b99b-695f780a8ff5"
+  },
+  {
+    "id": "e4cb9299-71b3-4d8a-9ca5-584299b7bd6b",
+    "date": "2025-02-03",
+    "description": "test00",
+    "amount": 1000000,
+    "userId": "admin"
+  },
+  {
+    "id": "0c409615-2b79-430d-b0aa-2e54d1de9961",
+    "date": "2025-02-01",
+    "description": "test01",
+    "amount": 10,
+    "userId": "admin"
   }
 ]

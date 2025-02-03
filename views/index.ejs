@@ -47,7 +47,7 @@
                 <th>日付</th>
                 <th>説明</th>
                 <th>金額</th>
-                <th>登録者</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -56,19 +56,43 @@
                     <td><%= expense.date %></td>
                     <td><%= expense.description %></td>
                     <td><%= Number(expense.amount).toLocaleString('ja-JP') %>円</td>
-                    <td><%= expense.userName %></td>
+                    <td>
+                        <a href="/expenses/edit/<%= expense.id %>">
+                            <button type="button">編集</button>
+                        </a>
+                        <form action="/expenses/delete" method="POST">
+                            <input type="hidden" name="id" value="<%= expense.id %>">
+                            <button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="2">合計</td>
-                <td colspan="2"><%= totalExpenses.toLocaleString('ja-JP') %>円</td>
+                <td colspan="2"><strong>合計</strong></td>
+                <td colspan="2"><strong><%= Number(totalExpenses).toLocaleString('ja-JP') %> 円</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>月の予算</strong></td>
+                <td colspan="2"><strong><%= Number(currentBudget).toLocaleString('ja-JP') %> 円</strong></td>
+            </tr>
+            <tr>
+                <td colspan="2"><strong>残り予算</strong></td>
+                <% if (remainingBudget < 0) { %>
+                    <td colspan="2" style="color: red;"><strong>オーバー: <%= Math.abs(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                <% } else { %>
+                    <td colspan="2"><strong><%= Number(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                <% } %>
             </tr>
             </tfoot>
         </table>
     <% } %>
+</section>
 
+<!-- 経費追加フォーム -->
+<section>
+    <h2>経費登録</h2>
     <form action="/expenses/add" method="POST">
         <label for="date">日付:</label>
         <input type="date" id="date" name="date" required>
@@ -82,13 +106,18 @@
         <button type="submit">追加</button>
     </form>
 </section>
+
+<!-- 予算設定 -->
 <section>
     <h2>予算設定</h2>
     <form action="/budget/set" method="POST">
+        <input type="hidden" name="year" value="<%= selectedYear %>">
+        <input type="hidden" name="month" value="<%= selectedMonth %>">
         <label for="budget">月の予算 (円):</label>
-        <input type="number" name="budget" id="budget" value="<%= budget[selectedYear + '-' + selectedMonth] || '' %>" required>
+        <input type="number" name="amount" id="budget" value="<%= budget[selectedYear + '-' + selectedMonth] || '' %>" required>
         <button type="submit">設定</button>
     </form>
 </section>
+
 </body>
 </html>

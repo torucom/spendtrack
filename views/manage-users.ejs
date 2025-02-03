@@ -12,7 +12,7 @@
             const response = await fetch("/manage-users/delete", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ userId })
+                body: JSON.stringify({ id: userId }) // 🔹 idキーに統一
             });
 
             if (response.ok) {
@@ -32,7 +32,7 @@
 
 <section>
     <h2>登録ユーザー</h2>
-    <table>
+    <table class="user-table">
         <thead>
         <tr>
             <th>ID</th>
@@ -51,7 +51,11 @@
                 <td><%= user.role %></td>
                 <td>
                     <% if (user.id !== "admin") { %>
-                        <button onclick="deleteUser('<%= user.id %>')">削除</button>
+                        <!-- 削除フォーム -->
+                        <form action="/manage-users/delete" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                            <input type="hidden" name="id" value="<%= user.id %>">
+                            <button type="submit">削除</button>
+                        </form>
                     <% } else { %>
                         (管理者)
                     <% } %>
