@@ -1,0 +1,94 @@
+@import "variables";
+
+/* 📌 各セクションの最大幅を 780px に設定 */
+.expenses-section {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 📌 テーブルのテキストを中央揃え */
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; /* 🌟 中央揃え */
+    vertical-align: middle; /* 🌟 上付きにならないように */
+  }
+
+  /* 📌 thead の配色を強調 */
+  thead th {
+    background-color: #333; /* 🌟 わかりやすくする */
+    color: white;
+    font-weight: bold;
+  }
+
+  tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* 📌 編集・削除ボタンを小さくする */
+.button-group .button {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+
+/* 📌 モバイル設定（スマホサイズのみ） */
+@media (max-width: 480px) {
+  .expense-table {
+    display: none;
+  }
+
+  .expense-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .expense-card {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .expense-card .date {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  .expense-card .description {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  .expense-card .amount {
+    font-size: 1.1rem;
+    color: #1c88c7;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+
+  .expense-card .button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+  }
+}
+
+/* 📌 2025年3月以降のボタンを非アクティブに */
+.month-button {
+  @extend .button;
+}
+
+.month-button.inactive {
+  background-color: #1a1a1a;
+  color: #444;
+  cursor: not-allowed;
+}

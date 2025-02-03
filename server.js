@@ -89,6 +89,16 @@ app.get("/", (req, res) => {
     const currentBudget = budgetData[`${selectedYear}-${selectedMonth}`] || 0;
     const remainingBudget = currentBudget - totalExpenses;
 
+    // 📌 DBに登録がある月を取得する（`monthList` から `active` の月を抽出）
+    const monthList = Array.from({ length: 12 }, (_, i) => {
+        const month = String(i + 1).padStart(2, "0");
+        return {
+            month,
+            active: expenses.some(expense => expense.date.startsWith(`${selectedYear}-${month}`))
+        };
+    });
+    const dbRegisteredMonths = monthList.filter(m => m.active).map(m => m.month); // 📌 登録済みの月だけ抽出
+
     res.render("index", {
         user,
         expenses: filteredExpenses,
@@ -97,13 +107,8 @@ app.get("/", (req, res) => {
         selectedMonth,
         previousYear: selectedYear - 1,
         nextYear: selectedYear + 1,
-        monthList: Array.from({ length: 12 }, (_, i) => {
-            const month = String(i + 1).padStart(2, "0");
-            return {
-                month,
-                active: expenses.some(expense => expense.date.startsWith(`${selectedYear}-${month}`))
-            };
-        }),
+        monthList,
+        dbRegisteredMonths, // 📌 ここで EJS に渡す！
         budget: budgetData,
         currentBudget,
         remainingBudget

@@ -1,0 +1,49 @@
+@import "variables";
+
+.month-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.year-nav {
+  @extend .button;
+  min-width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.month-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.month-button {
+  @extend .button;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.month-button.inactive {
+  background-color: #333 !important;
+  color: #777 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}

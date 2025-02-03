@@ -1,0 +1,12 @@
+@import "variables";
+
+/* 📌 追加・設定ボタン */
+.form-button {
+  @extend .button;
+  min-width: 120px;
+}
+
+/* 📌 セクションごとの余白を統一 */
+section {
+  margin-bottom: 20px;
+}

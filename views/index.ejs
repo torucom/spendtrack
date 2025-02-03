@@ -11,37 +11,47 @@
     <h1>SpendTrack</h1>
     <p>こんにちは、<%= user.name %> さん</p>
     <form action="/logout" method="POST">
-        <button type="submit">ログアウト</button>
+        <button class="button">ログアウト</button>
     </form>
     <% if (user.role === "admin") { %>
-        <button onclick="location.href='/manage-users'">ユーザー管理</button>
+        <button class="user-management" onclick="location.href='/manage-users'">ユーザー管理</button>
     <% } %>
 </header>
 
-<!-- 年ナビゲーション -->
-<div class="year-navigation">
-    <a href="/?year=<%= previousYear %>&month=<%= selectedMonth %>"><< 前年</a>
-    <span><strong><%= selectedYear %></strong> 年</span>
-    <a href="/?year=<%= nextYear %>&month=<%= selectedMonth %>">翌年 >></a>
+<h2 class="selected-year"><%= selectedYear %> 年</h2>
+
+<div class="month-container">
+    <a href="/?year=<%= previousYear %>&month=<%= selectedMonth %>" class="year-nav"><<</a>
+
+    <div class="month-list-wrapper">
+        <% for (let row = 0; row < 2; row++) { %>
+            <div class="month-list">
+                <% for (let i = 1 + (row * 6); i <= 6 + (row * 6); i++) {
+                    let month = ('0' + i).slice(-2);
+                    let isInactive = !dbRegisteredMonths.includes(month); // 📌 DBに登録されていない月を非アクティブに
+                %>
+                <a href="/?year=<%= selectedYear %>&month=<%= month %>"
+                   class="month-button <%= selectedMonth === month ? 'current-month' : '' %> <%= isInactive ? 'inactive' : '' %>">
+                    <%= month %>月
+                </a>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+
+    <a href="/?year=<%= nextYear %>&month=<%= selectedMonth %>" class="year-nav">>></a>
 </div>
 
-<!-- 月別リスト -->
-<div class="month-list">
-    <% monthList.forEach(({ month, active }) => { %>
-        <a href="/?year=<%= selectedYear %>&month=<%= month %>"
-           class="month-button <%= selectedMonth === month ? 'current-month' : '' %> <%= active ? '' : 'inactive' %>">
-            <%= month %>月
-        </a>
-    <% }) %>
-</div>
-
-<!-- 経費一覧 -->
-<section>
+<!-- 📌 経費一覧 -->
+<section class="expenses-section">
     <h2>経費一覧</h2>
+
     <% if (!expenses || expenses.length === 0) { %>
-        <p>登録された経費がありません。</p>
+        <p class="no-expenses">登録された経費がありません。</p>
     <% } else { %>
-        <table>
+
+        <!-- 📌 PC用のテーブルデザイン -->
+        <table class="expense-table">
             <thead>
             <tr>
                 <th>日付</th>
@@ -52,17 +62,20 @@
             </thead>
             <tbody>
             <% expenses.forEach(expense => { %>
-                <tr>
-                    <td><%= expense.date %></td>
+                <tr class="expense-row">
+                    <td><%= new Date(expense.date).toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }) %></td>
                     <td><%= expense.description %></td>
                     <td><%= Number(expense.amount).toLocaleString('ja-JP') %>円</td>
-                    <td>
+                    <td class="button-group">
                         <a href="/expenses/edit/<%= expense.id %>">
-                            <button type="button">編集</button>
+                            <button class="button expense-edit">編集</button>
                         </a>
-                        <form action="/expenses/delete" method="POST">
+                        <form action="/expenses/delete" method="POST" class="expense-delete-form">
                             <input type="hidden" name="id" value="<%= expense.id %>">
-                            <button type="submit" onclick="return confirm('本当に削除しますか？')">削除</button>
+                            <button type="submit" class="button expense-delete"
+                                    onclick="return confirm('本当に削除しますか？')">
+                                削除
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -80,17 +93,41 @@
             <tr>
                 <td colspan="2"><strong>残り予算</strong></td>
                 <% if (remainingBudget < 0) { %>
-                    <td colspan="2" style="color: red;"><strong>オーバー: <%= Math.abs(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                    <td colspan="2" class="over-budget"><strong>オーバー: <%= Math.abs(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
                 <% } else { %>
                     <td colspan="2"><strong><%= Number(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
                 <% } %>
             </tr>
             </tfoot>
         </table>
+
+        <!-- 📌 モバイル用のカードデザイン -->
+        <div class="expense-list">
+            <% expenses.forEach(expense => { %>
+                <div class="expense-card">
+                    <div class="date"><%= new Date(expense.date).toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }) %></div>
+                    <div class="description"><%= expense.description %></div>
+                    <div class="amount"><%= Number(expense.amount).toLocaleString('ja-JP') %>円</div>
+                    <div class="button-group">
+                        <a href="/expenses/edit/<%= expense.id %>">
+                            <button class="button expense-edit">編集</button>
+                        </a>
+                        <form action="/expenses/delete" method="POST">
+                            <input type="hidden" name="id" value="<%= expense.id %>">
+                            <button type="submit" class="button expense-delete"
+                                    onclick="return confirm('本当に削除しますか？')">
+                                削除
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
     <% } %>
 </section>
 
-<!-- 経費追加フォーム -->
+<!-- 経費登録フォーム -->
 <section>
     <h2>経費登録</h2>
     <form action="/expenses/add" method="POST">
@@ -103,7 +140,7 @@
         <label for="amount">金額:</label>
         <input type="number" id="amount" name="amount" required>
 
-        <button type="submit">追加</button>
+        <button type="submit" class="form-button">追加</button> <!-- 🌟 ここを修正 -->
     </form>
 </section>
 
@@ -115,7 +152,7 @@
         <input type="hidden" name="month" value="<%= selectedMonth %>">
         <label for="budget">月の予算 (円):</label>
         <input type="number" name="amount" id="budget" value="<%= budget[selectedYear + '-' + selectedMonth] || '' %>" required>
-        <button type="submit">設定</button>
+        <button type="submit" class="form-button">設定</button> <!-- 🌟 ここを修正 -->
     </form>
 </section>
 

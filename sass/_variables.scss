@@ -1,4 +1,8 @@
-// カスタムカラーを適用
-$primary: #3273dc;
-$danger: #ff3860;
-$success: #23d160;
+// 📌 カラースキーム（変数）
+$primary-color: #3273dc;
+$danger-color: #ff3860;  // ← これが未定義だとエラーになる！
+$secondary-color: #4a4a4a;
+$background-color: #f5f5f5;
+
+// 📌 フォント
+$base-font: "Arial", sans-serif;
