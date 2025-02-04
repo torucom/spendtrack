@@ -8,38 +8,60 @@
 </head>
 <body>
 <header>
-    <h1>SpendTrack</h1>
-    <p>こんにちは、<%= user.name %> さん</p>
-    <form action="/logout" method="POST">
-        <button class="button">ログアウト</button>
-    </form>
-    <% if (user.role === "admin") { %>
-        <button class="user-management" onclick="location.href='/manage-users'">ユーザー管理</button>
-    <% } %>
-</header>
+    <!-- ロゴとユーザー情報 -->
+    <div class="header-left">
+        <img src="/img/logo.svg" alt="ロゴ" class="logo"> <!-- ロゴ画像 -->
+        <p class="user-info">こんにちは、<%= user.name %> さん</p> <!-- ユーザー名 -->
+    </div>
 
-<h2 class="selected-year"><%= selectedYear %> 年</h2>
-
-<div class="month-container">
-    <a href="/?year=<%= previousYear %>&month=<%= selectedMonth %>" class="year-nav"><<</a>
-
-    <div class="month-list-wrapper">
-        <% for (let row = 0; row < 2; row++) { %>
-            <div class="month-list">
-                <% for (let i = 1 + (row * 6); i <= 6 + (row * 6); i++) {
-                    let month = ('0' + i).slice(-2);
-                    let isInactive = !dbRegisteredMonths.includes(month); // 📌 DBに登録されていない月を非アクティブに
-                %>
-                <a href="/?year=<%= selectedYear %>&month=<%= month %>"
-                   class="month-button <%= selectedMonth === month ? 'current-month' : '' %> <%= isInactive ? 'inactive' : '' %>">
-                    <%= month %>月
-                </a>
-                <% } %>
-            </div>
+    <!-- 右寄せボタン（ログイン、ユーザー管理など） -->
+    <div class="header-right">
+        <form action="/logout" method="POST">
+            <button class="button">ログアウト</button>
+        </form>
+        <% if (user.role === "admin") { %>
+            <button class="user-management" onclick="location.href='/manage-users'">ユーザー管理</button>
         <% } %>
     </div>
 
-    <a href="/?year=<%= nextYear %>&month=<%= selectedMonth %>" class="year-nav">>></a>
+    <!-- ハンバーガーメニュー（モバイル用） -->
+    <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
+    <nav class="nav-menu">
+        <a href="#">ホーム</a>
+        <a href="#">管理</a>
+        <a href="#">設定</a>
+    </nav>
+</header>
+
+<div class="month-container">
+    <!-- 年表示（タイトル） -->
+    <h2 class="selected-year"><%= selectedYear %> 年</h2>
+
+    <!-- navbar-section内でflexboxを使用 -->
+    <div class="navbar-section">
+        <!-- 前年ボタン -->
+        <a href="/?year=<%= previousYear %>&month=<%= selectedMonth %>" class="year-nav"><<</a>
+
+        <!-- 月リスト -->
+        <div class="month-list-wrapper">
+            <% for (let row = 0; row < 2; row++) { %>
+                <div class="month-list">
+                    <% for (let i = 1 + (row * 6); i <= 6 + (row * 6); i++) {
+                        let month = ('0' + i).slice(-2);
+                        let isInactive = !dbRegisteredMonths.includes(month); // DBに登録されていない月を非アクティブに
+                    %>
+                    <a href="/?year=<%= selectedYear %>&month=<%= month %>"
+                       class="month-button <%= selectedMonth === month ? 'current-month' : '' %> <%= isInactive ? 'inactive' : '' %>">
+                        <%= month %>月
+                    </a>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+        <!-- 翌年ボタン -->
+        <a href="/?year=<%= nextYear %>&month=<%= selectedMonth %>" class="year-nav">>></a>
+    </div>
 </div>
 
 <!-- 📌 経費一覧 -->
