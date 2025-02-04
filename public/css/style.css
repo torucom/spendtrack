@@ -1,4 +1,19 @@
 @charset "UTF-8";
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 /* 月別リストの枠内に収めるコンテナ */
 .month-container {
   max-width: 780px;
@@ -49,6 +64,17 @@
   text-align: center;
   padding: 6px 0;
   min-width: auto;
+}
+.month-container .navbar-section .month-list .month-button.current-month {
+  background-color: #1c88c7; /* アクティブ月のカラー */
+  color: white;
+  font-weight: bold;
+}
+.month-container .navbar-section .month-list .month-button.inactive {
+  background-color: #333 !important;
+  color: #777 !important;
+  cursor: not-allowed;
+  pointer-events: none; /* 非アクティブ月はクリックできない */
 }
 
 header {
@@ -128,6 +154,11 @@ header .nav-menu a:hover {
   }
 }
 
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 /* 📌 共通ボタンスタイル */
 .button, .form-button, .month-button, .user-management, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button {
   background-color: #14161A;
@@ -228,11 +259,25 @@ header .nav-menu a:hover {
     display: none;
   }
 }
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 /* 📌 各セクションの最大幅を 780px に設定 */
 .expenses-section {
   max-width: 780px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #222; /* 背景色を追加 */
+  border-radius: 8px;
+}
+.expenses-section h2 {
+  font-size: 1.8rem; /* 他のセクションと同じタイトルサイズ */
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* 📌 テーブルのテキストを中央揃え */
@@ -307,16 +352,137 @@ header .nav-menu a:hover {
   cursor: not-allowed;
 }
 
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 /* 📌 追加・設定ボタン */
 .form-button {
   min-width: 120px;
+  background-color: #1c88c7; /* ヘッダーのボタン色に統一 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.form-button:hover {
+  background-color: #1778a4; /* ホバー時のカラー */
 }
 
-/* 📌 セクションごとの余白を統一 */
-section {
+/* 経費登録フォームのスタイル */
+.expense-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 8px;
+}
+.expense-form h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
   margin-bottom: 20px;
 }
+.expense-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.expense-form form label {
+  font-size: 1rem;
+  color: white;
+}
+.expense-form form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #444;
+  color: white;
+}
+.expense-form form button {
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.expense-form form button:hover {
+  background-color: #1778a4;
+}
+@media (max-width: 768px) {
+  .expense-form form {
+    gap: 20px;
+  }
+  .expense-form input, .expense-form button {
+    width: 100%;
+  }
+}
 
+/* 予算設定フォームのスタイル */
+.budget-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 8px;
+}
+.budget-form h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.budget-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.budget-form form label {
+  font-size: 1rem;
+  color: white;
+}
+.budget-form form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #444;
+  color: white;
+}
+.budget-form form button {
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.budget-form form button:hover {
+  background-color: #1778a4;
+}
+@media (max-width: 768px) {
+  .budget-form form {
+    gap: 20px;
+  }
+  .budget-form input, .budget-form button {
+    width: 100%;
+  }
+}
+
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 .footer {
   background-color: #f5f5f5;
   text-align: center;

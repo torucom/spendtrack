@@ -55,6 +55,19 @@
         text-align: center;
         padding: 6px 0;
         min-width: auto;
+
+        &.current-month {
+          background-color: #1c88c7; /* アクティブ月のカラー */
+          color: white;
+          font-weight: bold;
+        }
+
+        &.inactive {
+          background-color: #333 !important;
+          color: #777 !important;
+          cursor: not-allowed;
+          pointer-events: none; /* 非アクティブ月はクリックできない */
+        }
       }
     }
   }

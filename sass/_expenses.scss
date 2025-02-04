@@ -5,6 +5,16 @@
   max-width: 780px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #222; /* 背景色を追加 */
+  border-radius: 8px;
+
+  h2 {
+    font-size: 1.8rem; /* 他のセクションと同じタイトルサイズ */
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
 /* 📌 テーブルのテキストを中央揃え */
