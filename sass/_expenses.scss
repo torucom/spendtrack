@@ -9,7 +9,7 @@
   border-radius: 8px;
 
   h2 {
-    font-size: 1.8rem; /* 他のセクションと同じタイトルサイズ */
+    font-size: 1.4rem; /* 他のセクションと同じタイトルサイズ */
     font-weight: bold;
     color: white;
     text-align: center;
@@ -24,16 +24,19 @@
 
   th, td {
     padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center; /* 🌟 中央揃え */
     vertical-align: middle; /* 🌟 上付きにならないように */
   }
-
+  .r-cell{
+    text-align: right!important;
+  }
   /* 📌 thead の配色を強調 */
   thead th {
     background-color: #333; /* 🌟 わかりやすくする */
     color: white;
     font-weight: bold;
+    text-align: center!important;
   }
 
   tbody tr:hover {

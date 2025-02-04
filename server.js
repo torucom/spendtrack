@@ -79,7 +79,14 @@ app.get("/", (req, res) => {
     const selectedYear = parseInt(req.query.year) || now.getFullYear();
     const selectedMonth = String(parseInt(req.query.month) || now.getMonth() + 1).padStart(2, "0");
 
-    const filteredExpenses = expenses.filter(expense =>
+    // ユーザー名を各経費アイテムに追加
+    const expensesWithUserNames = expenses.map(expense => {
+        const userName = users.find(u => u.id === expense.userId)?.name || "Unknown";
+        return { ...expense, userName };  // ユーザー名を追加
+    });
+
+    // フィルタリングして、選択された月の経費だけを表示
+    const filteredExpenses = expensesWithUserNames.filter(expense =>
         expense.userId === req.session.userId &&
         expense.date.startsWith(`${selectedYear}-${selectedMonth}`)
     );
@@ -99,12 +106,16 @@ app.get("/", (req, res) => {
     });
     const dbRegisteredMonths = monthList.filter(m => m.active).map(m => m.month); // 📌 登録済みの月だけ抽出
 
+    // アクティブな月を設定
+    const activeMonth = selectedMonth;
+
     res.render("index", {
         user,
         expenses: filteredExpenses,
         totalExpenses,
         selectedYear,
         selectedMonth,
+        activeMonth, // アクティブ月を渡す
         previousYear: selectedYear - 1,
         nextYear: selectedYear + 1,
         monthList,

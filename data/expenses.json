@@ -23,10 +23,10 @@
     "userId": "admin"
   },
   {
-    "id": "d8abbf99-3f57-4f3b-bb7c-165d8f166f77",
-    "date": "2025-02-03",
-    "description": "test",
-    "amount": 10,
+    "id": "f18fc9e2-6e4c-4c65-82e4-d04a4c1bff08",
+    "date": "2025-02-04",
+    "description": "test01",
+    "amount": 1000,
     "userId": "admin"
   }
 ]

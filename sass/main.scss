@@ -2,12 +2,14 @@
 @import "variables";
 
 // 📌 各コンポーネントのスタイルをインポート
+@import "style";
 @import "variables";
 @import "navbar";
 @import "buttons";
 @import "expenses";
 @import "forms";
 @import "footer";
+@import "print";
 
 // 📌 Bulmaの基本スタイル
 @import "../node_modules/bulma/bulma";

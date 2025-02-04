@@ -33,9 +33,9 @@
     </nav>
 </header>
 
-<div class="month-container">
+<section class="month-container">
     <!-- 年表示（タイトル） -->
-    <h2 class="selected-year"><%= selectedYear %> 年</h2>
+    <h2 class="selected-year"><%= selectedYear %> 年 <%= activeMonth %>月</h2>
 
     <!-- navbar-section内でflexboxを使用 -->
     <div class="navbar-section">
@@ -62,7 +62,7 @@
         <!-- 翌年ボタン -->
         <a href="/?year=<%= nextYear %>&month=<%= selectedMonth %>" class="year-nav">>></a>
     </div>
-</div>
+</section>
 
 <!-- 📌 経費一覧 -->
 <section class="expenses-section">
@@ -79,7 +79,8 @@
                 <th>日付</th>
                 <th>説明</th>
                 <th>金額</th>
-                <th>操作</th>
+                <th>起票者</th> <!-- ユーザー名のカラムを追加 -->
+                <th class="ope">操作</thope>
             </tr>
             </thead>
             <tbody>
@@ -87,7 +88,8 @@
                 <tr class="expense-row">
                     <td><%= new Date(expense.date).toLocaleDateString('ja-JP', { month: '2-digit', day: '2-digit' }) %></td>
                     <td><%= expense.description %></td>
-                    <td><%= Number(expense.amount).toLocaleString('ja-JP') %>円</td>
+                    <td class="r-cell"><%= Number(expense.amount).toLocaleString('ja-JP') %>円</td>
+                    <td class="r-cell"><%= expense.userName %></td> <!-- ユーザー名を表示 -->
                     <td class="button-group">
                         <a href="/expenses/edit/<%= expense.id %>">
                             <button class="button expense-edit">編集</button>
@@ -106,18 +108,18 @@
             <tfoot>
             <tr>
                 <td colspan="2"><strong>合計</strong></td>
-                <td colspan="2"><strong><%= Number(totalExpenses).toLocaleString('ja-JP') %> 円</strong></td>
+                <td colspan="3" style="text-align: right"><strong><%= Number(totalExpenses).toLocaleString('ja-JP') %> 円</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>月の予算</strong></td>
-                <td colspan="2"><strong><%= Number(currentBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                <td colspan="3" style="text-align: right"><strong><%= Number(currentBudget).toLocaleString('ja-JP') %> 円</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>残り予算</strong></td>
                 <% if (remainingBudget < 0) { %>
-                    <td colspan="2" class="over-budget"><strong>オーバー: <%= Math.abs(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                    <td colspan="3" class="over-budget" style="text-align: right"><strong>オーバー: <%= Math.abs(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
                 <% } else { %>
-                    <td colspan="2"><strong><%= Number(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
+                    <td colspan="3" style="text-align: right"><strong><%= Number(remainingBudget).toLocaleString('ja-JP') %> 円</strong></td>
                 <% } %>
             </tr>
             </tfoot>
@@ -179,6 +181,10 @@
         <button type="submit" class="button">設定</button>
     </form>
 </section>
-
+<footer class="footer">
+    <div class="footer-content">
+        <p>dev.be-quest</p>
+    </div>
+</footer>
 </body>
 </html>

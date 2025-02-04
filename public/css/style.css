@@ -9,6 +9,163 @@
 /* セカンダリカラー（グレー） */
 /* 背景色（ライトグレー） */
 /* 基本フォント */
+/* 📌 ライトモード背景色 */
+/* ライトグレー背景 */
+/* 📌 基本的なボディのスタイル */
+body {
+  background-color: #222;
+  color: #333; /* 黒に近い色 */
+  font-family: "Arial", sans-serif;
+}
+
+section {
+  margin: 2rem auto !important;
+}
+
+/* 共通のリンクスタイル */
+a {
+  color: #3273dc; /* リンクカラー */
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 📌 追加・設定ボタン */
+.form-button {
+  min-width: 120px;
+  background-color: #3273dc; /* ヘッダーのボタン色 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.form-button:hover {
+  background-color: rgb(31.9375, 91.25, 187.0625); /* ホバー時に色を少し暗く */
+}
+
+/* 経費登録フォームのスタイル */
+.expense-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* 明るい背景 */
+  border-radius: 8px;
+}
+.expense-form h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333; /* 明るい文字色 */
+  text-align: center;
+  margin-bottom: 20px;
+}
+.expense-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.expense-form form label {
+  font-size: 1rem;
+  color: #333; /* ライトモード用の文字色 */
+}
+.expense-form form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5; /* 明るい入力フィールド */
+  color: #333; /* テキスト色 */
+}
+.expense-form form button {
+  padding: 10px;
+  background-color: #3273dc; /* アクティブカラー */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.expense-form form button:hover {
+  background-color: rgb(31.9375, 91.25, 187.0625);
+}
+@media (max-width: 768px) {
+  .expense-form form {
+    gap: 20px;
+  }
+  .expense-form input, .expense-form button {
+    width: 100%;
+  }
+}
+
+/* 予算設定フォームのスタイル */
+.budget-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* 明るい背景 */
+  border-radius: 8px;
+}
+.budget-form h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333; /* 明るい文字色 */
+  text-align: center;
+  margin-bottom: 20px;
+}
+.budget-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.budget-form form label {
+  font-size: 1rem;
+  color: #333; /* ライトモード用の文字色 */
+}
+.budget-form form input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5; /* 明るい入力フィールド */
+  color: #333; /* テキスト色 */
+}
+.budget-form form button {
+  padding: 10px;
+  background-color: #3273dc; /* アクティブカラー */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.budget-form form button:hover {
+  background-color: rgb(31.9375, 91.25, 187.0625);
+}
+@media (max-width: 768px) {
+  .budget-form form {
+    gap: 20px;
+  }
+  .budget-form input, .budget-form button {
+    width: 100%;
+  }
+}
+
+/* 📌 2025年3月以降のボタンを非アクティブに */
+.month-button.inactive {
+  background-color: #1a1a1a;
+  color: #444;
+  cursor: not-allowed;
+}
+
+/* 主に使用する青色 */
+/* 警告色（赤系） */
+/* セカンダリカラー（グレー） */
+/* 背景色（ライトグレー） */
+/* 基本フォント */
 /* 主に使用する青色 */
 /* 警告色（赤系） */
 /* セカンダリカラー（グレー） */
@@ -25,6 +182,9 @@
   flex-direction: column; /* 年表示は縦に配置 */
   align-items: center;
   gap: 20px; /* 年表示と月リストの間に余白 */
+}
+.month-container h2 {
+  color: white;
 }
 .month-container .selected-year {
   font-size: 1.8rem;
@@ -93,10 +253,11 @@ header .header-left {
   gap: 5px; /* ロゴとユーザー情報の間に隙間をあける */
 }
 header .header-left .logo {
-  width: 150px; /* ロゴのサイズ */
+  width: 230px; /* ロゴのサイズ */
+  margin-bottom: 0.3rem;
 }
 header .header-left .user-info {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
 }
 header .header-right {
   display: flex;
@@ -160,7 +321,7 @@ header .nav-menu a:hover {
 /* 背景色（ライトグレー） */
 /* 基本フォント */
 /* 📌 共通ボタンスタイル */
-.button, .form-button, .month-button, .user-management, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button {
+.button, .user-management, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button {
   background-color: #14161A;
   color: white;
   border-radius: 8px;
@@ -171,7 +332,7 @@ header .nav-menu a:hover {
   border: none;
   display: inline-block;
 }
-.button:hover, .form-button:hover, .month-button:hover, .user-management:hover, .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .month-list .month-button:hover {
+.button:hover, .user-management:hover, .form-button:hover, .month-button:hover, .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .month-list .month-button:hover {
   background-color: rgb(42.1739130435, 46.3913043478, 54.8260869565);
 }
 
@@ -273,7 +434,7 @@ header .nav-menu a:hover {
   border-radius: 8px;
 }
 .expenses-section h2 {
-  font-size: 1.8rem; /* 他のセクションと同じタイトルサイズ */
+  font-size: 1.4rem; /* 他のセクションと同じタイトルサイズ */
   font-weight: bold;
   color: white;
   text-align: center;
@@ -288,14 +449,18 @@ header .nav-menu a:hover {
 }
 .expense-table th, .expense-table td {
   padding: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center; /* 🌟 中央揃え */
   vertical-align: middle; /* 🌟 上付きにならないように */
+}
+.expense-table .r-cell {
+  text-align: right !important;
 }
 .expense-table thead th {
   background-color: #333; /* 🌟 わかりやすくする */
   color: white;
   font-weight: bold;
+  text-align: center !important;
 }
 .expense-table tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.05);
@@ -382,7 +547,7 @@ header .nav-menu a:hover {
   border-radius: 8px;
 }
 .expense-form h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -435,7 +600,7 @@ header .nav-menu a:hover {
   border-radius: 8px;
 }
 .budget-form h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -487,18 +652,82 @@ header .nav-menu a:hover {
   background-color: #f5f5f5;
   text-align: center;
   padding: 1rem;
-  position: fixed;
   width: 100%;
   bottom: 0;
 }
 .footer .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 800px;
+  max-width: 780px;
   margin: auto;
 }
+.footer .footer-content p {
+  text-align: center;
+}
 
+@media print {
+  /* 全体の余白を減らす */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black !important; /* フォントカラーを黒に設定 */
+  }
+  section {
+    margin: 0 !important;
+    padding: 0 7em !important;
+  }
+  /* ヘッダーやフッターを非表示に */
+  header, footer {
+    display: none;
+  }
+  /* 不要なナビゲーションやボタンを非表示に */
+  .button, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management, .hamburger-menu, .nav-menu {
+    display: none !important;
+  }
+  .month-container h2 {
+    color: black;
+  }
+  .expenses-section h2 {
+    color: black;
+  }
+  /* 経費一覧（テーブル）のスタイル */
+  .expense-table {
+    width: 100%;
+    border: 1px solid black; /* テーブルの罫線を黒に設定 */
+    border-collapse: collapse;
+  }
+  .expense-table th, .expense-table td {
+    padding: 4px;
+    border: 1px solid black; /* セルの罫線を黒に設定 */
+    text-align: left; /* 左寄せ */
+    font-size: 10pt; /* フォントサイズを小さくする */
+    color: black !important; /* フォントカラーを黒に設定 */
+  }
+  .expense-table thead {
+    background-color: #f1f1f1;
+  }
+  .expense-table tbody tr {
+    background-color: #fff;
+  }
+  .expense-table tbody tr:hover {
+    background-color: transparent; /* 印刷時の背景色は消す */
+  }
+  .expense-table .ope {
+    display: none;
+  }
+  /* ページ設定 */
+  @page {
+    margin: 0mm; /* ページの余白 */
+  }
+  /* 印刷用のボタンやリンクの非表示 */
+  .expense-edit, .expense-delete, .expense-list, .expense-form, .budget-form {
+    display: none;
+  }
+  /* 合計や予算、残り予算の数値を右寄せ */
+  .expense-table tfoot td {
+    text-align: right !important;
+  }
+}
 /* Bulma Utilities */
 :root {
   --bulma-control-radius: var(--bulma-radius);
@@ -3636,7 +3865,7 @@ table th {
 .pagination-next,
 .pagination-link,
 .pagination-ellipsis, .file-cta,
-.file-name, .select select, .input, .textarea, .button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management, .month-button, .form-button {
+.file-name, .select select, .input, .textarea, .button, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management {
   align-items: center;
   appearance: none;
   border-color: transparent;
@@ -3689,7 +3918,7 @@ table th {
   --bulma-delete-background-alpha: 0.5;
 }
 
-.control.is-loading::after, .select.is-loading::after, .button.is-loading::after, .month-container .navbar-section .is-loading.year-nav::after, .month-container .navbar-section .month-list .is-loading.month-button::after, .is-loading.user-management::after, .is-loading.month-button::after, .is-loading.form-button::after {
+.control.is-loading::after, .select.is-loading::after, .button.is-loading::after, .is-loading.form-button::after, .is-loading.month-button::after, .month-container .navbar-section .is-loading.year-nav::after, .month-container .navbar-section .month-list .is-loading.month-button::after, .is-loading.user-management::after {
   animation: spinAround 500ms infinite linear;
   border: 2px solid var(--bulma-loading-color);
   border-radius: var(--bulma-radius-rounded);
@@ -3726,7 +3955,7 @@ table th {
 .is-unselectable, .tabs, .pagination-previous,
 .pagination-next,
 .pagination-link,
-.pagination-ellipsis, .breadcrumb, .file, .button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management, .month-button, .form-button {
+.pagination-ellipsis, .breadcrumb, .file, .button, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3761,7 +3990,7 @@ a.box:active {
   box-shadow: var(--bulma-box-link-active-shadow);
 }
 
-.button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management, .month-button, .form-button {
+.button, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management {
   --bulma-button-family: false;
   --bulma-button-weight: var(--bulma-weight-medium);
   --bulma-button-border-color: var(--bulma-border);
@@ -3793,7 +4022,7 @@ a.box:active {
   --bulma-button-static-border-color: var(--bulma-border);
 }
 
-.button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management, .month-button, .form-button {
+.button, .form-button, .month-button, .month-container .navbar-section .year-nav, .month-container .navbar-section .month-list .month-button, .user-management {
   --bulma-button-h: var(--bulma-scheme-h);
   --bulma-button-s: var(--bulma-scheme-s);
   --bulma-button-l: var(--bulma-scheme-main-l);
@@ -3830,55 +4059,55 @@ a.box:active {
   white-space: nowrap;
 }
 
-.button strong, .month-container .navbar-section .year-nav strong, .month-container .navbar-section .month-list .month-button strong, .user-management strong, .month-button strong, .form-button strong {
+.button strong, .form-button strong, .month-button strong, .month-container .navbar-section .year-nav strong, .month-container .navbar-section .month-list .month-button strong, .user-management strong {
   color: inherit;
 }
 
-.button .icon, .month-container .navbar-section .year-nav .icon, .month-container .navbar-section .month-list .month-button .icon, .user-management .icon, .month-button .icon, .form-button .icon, .button .icon.is-small, .button .icon.is-medium, .button .icon.is-large {
+.button .icon, .form-button .icon, .month-button .icon, .month-container .navbar-section .year-nav .icon, .month-container .navbar-section .month-list .month-button .icon, .user-management .icon, .button .icon.is-small, .button .icon.is-medium, .button .icon.is-large {
   height: 1.5em;
   width: 1.5em;
 }
 
-.button .icon:first-child:not(:last-child), .month-container .navbar-section .year-nav .icon:first-child:not(:last-child), .user-management .icon:first-child:not(:last-child), .month-button .icon:first-child:not(:last-child), .form-button .icon:first-child:not(:last-child) {
+.button .icon:first-child:not(:last-child), .form-button .icon:first-child:not(:last-child), .month-button .icon:first-child:not(:last-child), .month-container .navbar-section .year-nav .icon:first-child:not(:last-child), .user-management .icon:first-child:not(:last-child) {
   margin-inline-start: calc(-0.5 * var(--bulma-button-padding-horizontal));
   margin-inline-end: calc(var(--bulma-button-padding-horizontal) * 0.25);
 }
 
-.button .icon:last-child:not(:first-child), .month-container .navbar-section .year-nav .icon:last-child:not(:first-child), .user-management .icon:last-child:not(:first-child), .month-button .icon:last-child:not(:first-child), .form-button .icon:last-child:not(:first-child) {
+.button .icon:last-child:not(:first-child), .form-button .icon:last-child:not(:first-child), .month-button .icon:last-child:not(:first-child), .month-container .navbar-section .year-nav .icon:last-child:not(:first-child), .user-management .icon:last-child:not(:first-child) {
   margin-inline-start: calc(var(--bulma-button-padding-horizontal) * 0.25);
   margin-inline-end: calc(-0.5 * var(--bulma-button-padding-horizontal));
 }
 
-.button .icon:first-child:last-child, .month-container .navbar-section .year-nav .icon:first-child:last-child, .user-management .icon:first-child:last-child, .month-button .icon:first-child:last-child, .form-button .icon:first-child:last-child {
+.button .icon:first-child:last-child, .form-button .icon:first-child:last-child, .month-button .icon:first-child:last-child, .month-container .navbar-section .year-nav .icon:first-child:last-child, .user-management .icon:first-child:last-child {
   margin-inline-start: calc(-0.5 * var(--bulma-button-padding-horizontal));
   margin-inline-end: calc(-0.5 * var(--bulma-button-padding-horizontal));
 }
 
-.button:hover, .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .month-list .month-button:hover, .user-management:hover, .month-button:hover, .form-button:hover, .button.is-hovered, .month-container .navbar-section .is-hovered.year-nav, .month-container .navbar-section .month-list .is-hovered.month-button, .is-hovered.user-management, .is-hovered.month-button, .is-hovered.form-button {
+.button:hover, .form-button:hover, .month-button:hover, .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .month-list .month-button:hover, .user-management:hover, .button.is-hovered, .is-hovered.form-button, .is-hovered.month-button, .month-container .navbar-section .is-hovered.year-nav, .month-container .navbar-section .month-list .is-hovered.month-button, .is-hovered.user-management {
   --bulma-button-background-l-delta: var(--bulma-button-hover-background-l-delta);
   --bulma-button-border-l-delta: var(--bulma-button-hover-border-l-delta);
 }
 
-.button:focus-visible, .month-container .navbar-section .year-nav:focus-visible, .month-container .navbar-section .month-list .month-button:focus-visible, .user-management:focus-visible, .month-button:focus-visible, .form-button:focus-visible, .button.is-focused, .month-container .navbar-section .is-focused.year-nav, .month-container .navbar-section .month-list .is-focused.month-button, .is-focused.user-management, .is-focused.month-button, .is-focused.form-button {
+.button:focus-visible, .form-button:focus-visible, .month-button:focus-visible, .month-container .navbar-section .year-nav:focus-visible, .month-container .navbar-section .month-list .month-button:focus-visible, .user-management:focus-visible, .button.is-focused, .is-focused.form-button, .is-focused.month-button, .month-container .navbar-section .is-focused.year-nav, .month-container .navbar-section .month-list .is-focused.month-button, .is-focused.user-management {
   --bulma-button-border-width: 1px;
   border-color: hsl(var(--bulma-focus-h), var(--bulma-focus-s), var(--bulma-focus-l));
   box-shadow: var(--bulma-focus-shadow-size) hsla(var(--bulma-focus-h), var(--bulma-focus-s), var(--bulma-focus-l), var(--bulma-focus-shadow-alpha));
 }
 
-.button:active, .month-container .navbar-section .year-nav:active, .month-container .navbar-section .month-list .month-button:active, .user-management:active, .month-button:active, .form-button:active, .button.is-active, .month-container .navbar-section .is-active.year-nav, .month-container .navbar-section .month-list .is-active.month-button, .is-active.user-management, .is-active.month-button, .is-active.form-button {
+.button:active, .form-button:active, .month-button:active, .month-container .navbar-section .year-nav:active, .month-container .navbar-section .month-list .month-button:active, .user-management:active, .button.is-active, .is-active.form-button, .is-active.month-button, .month-container .navbar-section .is-active.year-nav, .month-container .navbar-section .month-list .is-active.month-button, .is-active.user-management {
   --bulma-button-background-l-delta: var(--bulma-button-active-background-l-delta);
   --bulma-button-border-l-delta: var(--bulma-button-active-border-l-delta);
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button[disabled], .month-container .navbar-section [disabled].year-nav, .month-container .navbar-section .month-list [disabled].month-button, [disabled].user-management, [disabled].month-button, [disabled].form-button, fieldset[disabled] .button, fieldset[disabled] .month-container .navbar-section .year-nav, .month-container .navbar-section fieldset[disabled] .year-nav, fieldset[disabled] .month-container .navbar-section .month-list .month-button, .month-container .navbar-section .month-list fieldset[disabled] .month-button, fieldset[disabled] .user-management, fieldset[disabled] .month-button, fieldset[disabled] .form-button {
+.button[disabled], [disabled].form-button, [disabled].month-button, .month-container .navbar-section [disabled].year-nav, .month-container .navbar-section .month-list [disabled].month-button, [disabled].user-management, fieldset[disabled] .button, fieldset[disabled] .form-button, fieldset[disabled] .month-button, fieldset[disabled] .month-container .navbar-section .year-nav, .month-container .navbar-section fieldset[disabled] .year-nav, fieldset[disabled] .month-container .navbar-section .month-list .month-button, .month-container .navbar-section .month-list fieldset[disabled] .month-button, fieldset[disabled] .user-management {
   background-color: var(--bulma-button-disabled-background-color);
   border-color: var(--bulma-button-disabled-border-color);
   box-shadow: var(--bulma-button-disabled-shadow);
   opacity: var(--bulma-button-disabled-opacity);
 }
 
-.button.is-white, .month-container .navbar-section .is-white.year-nav, .month-container .navbar-section .month-list .is-white.month-button, .is-white.user-management, .is-white.month-button, .is-white.form-button {
+.button.is-white, .is-white.form-button, .is-white.month-button, .month-container .navbar-section .is-white.year-nav, .month-container .navbar-section .month-list .is-white.month-button, .is-white.user-management {
   --bulma-button-h: var(--bulma-white-h);
   --bulma-button-s: var(--bulma-white-s);
   --bulma-button-l: var(--bulma-white-l);
@@ -3889,27 +4118,27 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-white:focus-visible, .month-container .navbar-section .is-white.year-nav:focus-visible, .month-container .navbar-section .month-list .is-white.month-button:focus-visible, .is-white.user-management:focus-visible, .is-white.month-button:focus-visible, .is-white.form-button:focus-visible, .button.is-white.is-focused, .month-container .navbar-section .is-white.is-focused.year-nav, .month-container .navbar-section .month-list .is-white.is-focused.month-button, .is-white.is-focused.user-management, .is-white.is-focused.month-button, .is-white.is-focused.form-button {
+.button.is-white:focus-visible, .is-white.form-button:focus-visible, .is-white.month-button:focus-visible, .month-container .navbar-section .is-white.year-nav:focus-visible, .month-container .navbar-section .month-list .is-white.month-button:focus-visible, .is-white.user-management:focus-visible, .button.is-white.is-focused, .is-white.is-focused.form-button, .is-white.is-focused.month-button, .month-container .navbar-section .is-white.is-focused.year-nav, .month-container .navbar-section .month-list .is-white.is-focused.month-button, .is-white.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-white.is-soft, .month-container .navbar-section .is-white.is-soft.year-nav, .month-container .navbar-section .month-list .is-white.is-soft.month-button, .is-white.is-soft.user-management, .is-white.is-soft.month-button, .is-white.is-soft.form-button {
+.button.is-white.is-soft, .is-white.is-soft.form-button, .is-white.is-soft.month-button, .month-container .navbar-section .is-white.is-soft.year-nav, .month-container .navbar-section .month-list .is-white.is-soft.month-button, .is-white.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-white.is-bold, .month-container .navbar-section .is-white.is-bold.year-nav, .month-container .navbar-section .month-list .is-white.is-bold.month-button, .is-white.is-bold.user-management, .is-white.is-bold.month-button, .is-white.is-bold.form-button {
+.button.is-white.is-bold, .is-white.is-bold.form-button, .is-white.is-bold.month-button, .month-container .navbar-section .is-white.is-bold.year-nav, .month-container .navbar-section .month-list .is-white.is-bold.month-button, .is-white.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-white[disabled], .month-container .navbar-section .is-white[disabled].year-nav, .month-container .navbar-section .month-list .is-white[disabled].month-button, .is-white[disabled].user-management, .is-white[disabled].month-button, .is-white[disabled].form-button, fieldset[disabled] .button.is-white, fieldset[disabled] .month-container .navbar-section .is-white.year-nav, .month-container .navbar-section fieldset[disabled] .is-white.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-white.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-white.month-button, fieldset[disabled] .is-white.user-management, fieldset[disabled] .is-white.month-button, fieldset[disabled] .is-white.form-button {
+.button.is-white[disabled], .is-white[disabled].form-button, .is-white[disabled].month-button, .month-container .navbar-section .is-white[disabled].year-nav, .month-container .navbar-section .month-list .is-white[disabled].month-button, .is-white[disabled].user-management, fieldset[disabled] .button.is-white, fieldset[disabled] .is-white.form-button, fieldset[disabled] .is-white.month-button, fieldset[disabled] .month-container .navbar-section .is-white.year-nav, .month-container .navbar-section fieldset[disabled] .is-white.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-white.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-white.month-button, fieldset[disabled] .is-white.user-management {
   background-color: var(--bulma-white);
   border-color: var(--bulma-white);
   box-shadow: none;
 }
 
-.button.is-black, .month-container .navbar-section .is-black.year-nav, .month-container .navbar-section .month-list .is-black.month-button, .is-black.user-management, .is-black.month-button, .is-black.form-button {
+.button.is-black, .is-black.form-button, .is-black.month-button, .month-container .navbar-section .is-black.year-nav, .month-container .navbar-section .month-list .is-black.month-button, .is-black.user-management {
   --bulma-button-h: var(--bulma-black-h);
   --bulma-button-s: var(--bulma-black-s);
   --bulma-button-l: var(--bulma-black-l);
@@ -3920,27 +4149,27 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-black:focus-visible, .month-container .navbar-section .is-black.year-nav:focus-visible, .month-container .navbar-section .month-list .is-black.month-button:focus-visible, .is-black.user-management:focus-visible, .is-black.month-button:focus-visible, .is-black.form-button:focus-visible, .button.is-black.is-focused, .month-container .navbar-section .is-black.is-focused.year-nav, .month-container .navbar-section .month-list .is-black.is-focused.month-button, .is-black.is-focused.user-management, .is-black.is-focused.month-button, .is-black.is-focused.form-button {
+.button.is-black:focus-visible, .is-black.form-button:focus-visible, .is-black.month-button:focus-visible, .month-container .navbar-section .is-black.year-nav:focus-visible, .month-container .navbar-section .month-list .is-black.month-button:focus-visible, .is-black.user-management:focus-visible, .button.is-black.is-focused, .is-black.is-focused.form-button, .is-black.is-focused.month-button, .month-container .navbar-section .is-black.is-focused.year-nav, .month-container .navbar-section .month-list .is-black.is-focused.month-button, .is-black.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-black.is-soft, .month-container .navbar-section .is-black.is-soft.year-nav, .month-container .navbar-section .month-list .is-black.is-soft.month-button, .is-black.is-soft.user-management, .is-black.is-soft.month-button, .is-black.is-soft.form-button {
+.button.is-black.is-soft, .is-black.is-soft.form-button, .is-black.is-soft.month-button, .month-container .navbar-section .is-black.is-soft.year-nav, .month-container .navbar-section .month-list .is-black.is-soft.month-button, .is-black.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-black.is-bold, .month-container .navbar-section .is-black.is-bold.year-nav, .month-container .navbar-section .month-list .is-black.is-bold.month-button, .is-black.is-bold.user-management, .is-black.is-bold.month-button, .is-black.is-bold.form-button {
+.button.is-black.is-bold, .is-black.is-bold.form-button, .is-black.is-bold.month-button, .month-container .navbar-section .is-black.is-bold.year-nav, .month-container .navbar-section .month-list .is-black.is-bold.month-button, .is-black.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-black[disabled], .month-container .navbar-section .is-black[disabled].year-nav, .month-container .navbar-section .month-list .is-black[disabled].month-button, .is-black[disabled].user-management, .is-black[disabled].month-button, .is-black[disabled].form-button, fieldset[disabled] .button.is-black, fieldset[disabled] .month-container .navbar-section .is-black.year-nav, .month-container .navbar-section fieldset[disabled] .is-black.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-black.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-black.month-button, fieldset[disabled] .is-black.user-management, fieldset[disabled] .is-black.month-button, fieldset[disabled] .is-black.form-button {
+.button.is-black[disabled], .is-black[disabled].form-button, .is-black[disabled].month-button, .month-container .navbar-section .is-black[disabled].year-nav, .month-container .navbar-section .month-list .is-black[disabled].month-button, .is-black[disabled].user-management, fieldset[disabled] .button.is-black, fieldset[disabled] .is-black.form-button, fieldset[disabled] .is-black.month-button, fieldset[disabled] .month-container .navbar-section .is-black.year-nav, .month-container .navbar-section fieldset[disabled] .is-black.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-black.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-black.month-button, fieldset[disabled] .is-black.user-management {
   background-color: var(--bulma-black);
   border-color: var(--bulma-black);
   box-shadow: none;
 }
 
-.button.is-light, .month-container .navbar-section .is-light.year-nav, .month-container .navbar-section .month-list .is-light.month-button, .is-light.user-management, .is-light.month-button, .is-light.form-button {
+.button.is-light, .is-light.form-button, .is-light.month-button, .month-container .navbar-section .is-light.year-nav, .month-container .navbar-section .month-list .is-light.month-button, .is-light.user-management {
   --bulma-button-h: var(--bulma-light-h);
   --bulma-button-s: var(--bulma-light-s);
   --bulma-button-l: var(--bulma-light-l);
@@ -3951,27 +4180,27 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-light:focus-visible, .month-container .navbar-section .is-light.year-nav:focus-visible, .month-container .navbar-section .month-list .is-light.month-button:focus-visible, .is-light.user-management:focus-visible, .is-light.month-button:focus-visible, .is-light.form-button:focus-visible, .button.is-light.is-focused, .month-container .navbar-section .is-light.is-focused.year-nav, .month-container .navbar-section .month-list .is-light.is-focused.month-button, .is-light.is-focused.user-management, .is-light.is-focused.month-button, .is-light.is-focused.form-button {
+.button.is-light:focus-visible, .is-light.form-button:focus-visible, .is-light.month-button:focus-visible, .month-container .navbar-section .is-light.year-nav:focus-visible, .month-container .navbar-section .month-list .is-light.month-button:focus-visible, .is-light.user-management:focus-visible, .button.is-light.is-focused, .is-light.is-focused.form-button, .is-light.is-focused.month-button, .month-container .navbar-section .is-light.is-focused.year-nav, .month-container .navbar-section .month-list .is-light.is-focused.month-button, .is-light.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-light.is-soft, .month-container .navbar-section .is-light.is-soft.year-nav, .month-container .navbar-section .month-list .is-light.is-soft.month-button, .is-light.is-soft.user-management, .is-light.is-soft.month-button, .is-light.is-soft.form-button {
+.button.is-light.is-soft, .is-light.is-soft.form-button, .is-light.is-soft.month-button, .month-container .navbar-section .is-light.is-soft.year-nav, .month-container .navbar-section .month-list .is-light.is-soft.month-button, .is-light.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-light.is-bold, .month-container .navbar-section .is-light.is-bold.year-nav, .month-container .navbar-section .month-list .is-light.is-bold.month-button, .is-light.is-bold.user-management, .is-light.is-bold.month-button, .is-light.is-bold.form-button {
+.button.is-light.is-bold, .is-light.is-bold.form-button, .is-light.is-bold.month-button, .month-container .navbar-section .is-light.is-bold.year-nav, .month-container .navbar-section .month-list .is-light.is-bold.month-button, .is-light.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-light[disabled], .month-container .navbar-section .is-light[disabled].year-nav, .month-container .navbar-section .month-list .is-light[disabled].month-button, .is-light[disabled].user-management, .is-light[disabled].month-button, .is-light[disabled].form-button, fieldset[disabled] .button.is-light, fieldset[disabled] .month-container .navbar-section .is-light.year-nav, .month-container .navbar-section fieldset[disabled] .is-light.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-light.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-light.month-button, fieldset[disabled] .is-light.user-management, fieldset[disabled] .is-light.month-button, fieldset[disabled] .is-light.form-button {
+.button.is-light[disabled], .is-light[disabled].form-button, .is-light[disabled].month-button, .month-container .navbar-section .is-light[disabled].year-nav, .month-container .navbar-section .month-list .is-light[disabled].month-button, .is-light[disabled].user-management, fieldset[disabled] .button.is-light, fieldset[disabled] .is-light.form-button, fieldset[disabled] .is-light.month-button, fieldset[disabled] .month-container .navbar-section .is-light.year-nav, .month-container .navbar-section fieldset[disabled] .is-light.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-light.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-light.month-button, fieldset[disabled] .is-light.user-management {
   background-color: var(--bulma-light);
   border-color: var(--bulma-light);
   box-shadow: none;
 }
 
-.button.is-dark, .month-container .navbar-section .is-dark.year-nav, .month-container .navbar-section .month-list .is-dark.month-button, .is-dark.user-management, .is-dark.month-button, .is-dark.form-button {
+.button.is-dark, .is-dark.form-button, .is-dark.month-button, .month-container .navbar-section .is-dark.year-nav, .month-container .navbar-section .month-list .is-dark.month-button, .is-dark.user-management {
   --bulma-button-h: var(--bulma-dark-h);
   --bulma-button-s: var(--bulma-dark-s);
   --bulma-button-l: var(--bulma-dark-l);
@@ -3982,27 +4211,27 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-dark:focus-visible, .month-container .navbar-section .is-dark.year-nav:focus-visible, .month-container .navbar-section .month-list .is-dark.month-button:focus-visible, .is-dark.user-management:focus-visible, .is-dark.month-button:focus-visible, .is-dark.form-button:focus-visible, .button.is-dark.is-focused, .month-container .navbar-section .is-dark.is-focused.year-nav, .month-container .navbar-section .month-list .is-dark.is-focused.month-button, .is-dark.is-focused.user-management, .is-dark.is-focused.month-button, .is-dark.is-focused.form-button {
+.button.is-dark:focus-visible, .is-dark.form-button:focus-visible, .is-dark.month-button:focus-visible, .month-container .navbar-section .is-dark.year-nav:focus-visible, .month-container .navbar-section .month-list .is-dark.month-button:focus-visible, .is-dark.user-management:focus-visible, .button.is-dark.is-focused, .is-dark.is-focused.form-button, .is-dark.is-focused.month-button, .month-container .navbar-section .is-dark.is-focused.year-nav, .month-container .navbar-section .month-list .is-dark.is-focused.month-button, .is-dark.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-dark.is-soft, .month-container .navbar-section .is-dark.is-soft.year-nav, .month-container .navbar-section .month-list .is-dark.is-soft.month-button, .is-dark.is-soft.user-management, .is-dark.is-soft.month-button, .is-dark.is-soft.form-button {
+.button.is-dark.is-soft, .is-dark.is-soft.form-button, .is-dark.is-soft.month-button, .month-container .navbar-section .is-dark.is-soft.year-nav, .month-container .navbar-section .month-list .is-dark.is-soft.month-button, .is-dark.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-dark.is-bold, .month-container .navbar-section .is-dark.is-bold.year-nav, .month-container .navbar-section .month-list .is-dark.is-bold.month-button, .is-dark.is-bold.user-management, .is-dark.is-bold.month-button, .is-dark.is-bold.form-button {
+.button.is-dark.is-bold, .is-dark.is-bold.form-button, .is-dark.is-bold.month-button, .month-container .navbar-section .is-dark.is-bold.year-nav, .month-container .navbar-section .month-list .is-dark.is-bold.month-button, .is-dark.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-dark[disabled], .month-container .navbar-section .is-dark[disabled].year-nav, .month-container .navbar-section .month-list .is-dark[disabled].month-button, .is-dark[disabled].user-management, .is-dark[disabled].month-button, .is-dark[disabled].form-button, fieldset[disabled] .button.is-dark, fieldset[disabled] .month-container .navbar-section .is-dark.year-nav, .month-container .navbar-section fieldset[disabled] .is-dark.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-dark.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-dark.month-button, fieldset[disabled] .is-dark.user-management, fieldset[disabled] .is-dark.month-button, fieldset[disabled] .is-dark.form-button {
+.button.is-dark[disabled], .is-dark[disabled].form-button, .is-dark[disabled].month-button, .month-container .navbar-section .is-dark[disabled].year-nav, .month-container .navbar-section .month-list .is-dark[disabled].month-button, .is-dark[disabled].user-management, fieldset[disabled] .button.is-dark, fieldset[disabled] .is-dark.form-button, fieldset[disabled] .is-dark.month-button, fieldset[disabled] .month-container .navbar-section .is-dark.year-nav, .month-container .navbar-section fieldset[disabled] .is-dark.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-dark.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-dark.month-button, fieldset[disabled] .is-dark.user-management {
   background-color: var(--bulma-dark);
   border-color: var(--bulma-dark);
   box-shadow: none;
 }
 
-.button.is-text, .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section .month-list .is-text.month-button, .is-text.user-management, .is-text.month-button, .is-text.form-button {
+.button.is-text, .is-text.form-button, .is-text.month-button, .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section .month-list .is-text.month-button, .is-text.user-management {
   --bulma-button-h: var(--bulma-text-h);
   --bulma-button-s: var(--bulma-text-s);
   --bulma-button-l: var(--bulma-text-l);
@@ -4013,37 +4242,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-text:focus-visible, .month-container .navbar-section .is-text.year-nav:focus-visible, .month-container .navbar-section .month-list .is-text.month-button:focus-visible, .is-text.user-management:focus-visible, .is-text.month-button:focus-visible, .is-text.form-button:focus-visible, .button.is-text.is-focused, .month-container .navbar-section .is-text.is-focused.year-nav, .month-container .navbar-section .month-list .is-text.is-focused.month-button, .is-text.is-focused.user-management, .is-text.is-focused.month-button, .is-text.is-focused.form-button {
+.button.is-text:focus-visible, .is-text.form-button:focus-visible, .is-text.month-button:focus-visible, .month-container .navbar-section .is-text.year-nav:focus-visible, .month-container .navbar-section .month-list .is-text.month-button:focus-visible, .is-text.user-management:focus-visible, .button.is-text.is-focused, .is-text.is-focused.form-button, .is-text.is-focused.month-button, .month-container .navbar-section .is-text.is-focused.year-nav, .month-container .navbar-section .month-list .is-text.is-focused.month-button, .is-text.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-text.is-light, .month-container .navbar-section .is-text.is-light.year-nav, .month-container .navbar-section .month-list .is-text.is-light.month-button, .is-text.is-light.user-management, .is-text.is-light.month-button, .is-text.is-light.form-button {
+.button.is-text.is-light, .is-text.is-light.form-button, .is-text.is-light.month-button, .month-container .navbar-section .is-text.is-light.year-nav, .month-container .navbar-section .month-list .is-text.is-light.month-button, .is-text.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-text-light-invert-l);
 }
 
-.button.is-text.is-dark, .month-container .navbar-section .is-text.is-dark.year-nav, .month-container .navbar-section .month-list .is-text.is-dark.month-button, .is-text.is-dark.user-management, .is-text.is-dark.month-button, .is-text.is-dark.form-button {
+.button.is-text.is-dark, .is-text.is-dark.form-button, .is-text.is-dark.month-button, .month-container .navbar-section .is-text.is-dark.year-nav, .month-container .navbar-section .month-list .is-text.is-dark.month-button, .is-text.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-text-dark-invert-l);
 }
 
-.button.is-text.is-soft, .month-container .navbar-section .is-text.is-soft.year-nav, .month-container .navbar-section .month-list .is-text.is-soft.month-button, .is-text.is-soft.user-management, .is-text.is-soft.month-button, .is-text.is-soft.form-button {
+.button.is-text.is-soft, .is-text.is-soft.form-button, .is-text.is-soft.month-button, .month-container .navbar-section .is-text.is-soft.year-nav, .month-container .navbar-section .month-list .is-text.is-soft.month-button, .is-text.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-text.is-bold, .month-container .navbar-section .is-text.is-bold.year-nav, .month-container .navbar-section .month-list .is-text.is-bold.month-button, .is-text.is-bold.user-management, .is-text.is-bold.month-button, .is-text.is-bold.form-button {
+.button.is-text.is-bold, .is-text.is-bold.form-button, .is-text.is-bold.month-button, .month-container .navbar-section .is-text.is-bold.year-nav, .month-container .navbar-section .month-list .is-text.is-bold.month-button, .is-text.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-text[disabled], .month-container .navbar-section .is-text[disabled].year-nav, .month-container .navbar-section .month-list .is-text[disabled].month-button, .is-text[disabled].user-management, .is-text[disabled].month-button, .is-text[disabled].form-button, fieldset[disabled] .button.is-text, fieldset[disabled] .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section fieldset[disabled] .is-text.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-text.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.user-management, fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.form-button {
+.button.is-text[disabled], .is-text[disabled].form-button, .is-text[disabled].month-button, .month-container .navbar-section .is-text[disabled].year-nav, .month-container .navbar-section .month-list .is-text[disabled].month-button, .is-text[disabled].user-management, fieldset[disabled] .button.is-text, fieldset[disabled] .is-text.form-button, fieldset[disabled] .is-text.month-button, fieldset[disabled] .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section fieldset[disabled] .is-text.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-text.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.user-management {
   background-color: var(--bulma-text);
   border-color: var(--bulma-text);
   box-shadow: none;
 }
 
-.button.is-primary, .month-container .navbar-section .is-primary.year-nav, .month-container .navbar-section .month-list .is-primary.month-button, .is-primary.user-management, .is-primary.month-button, .is-primary.form-button {
+.button.is-primary, .is-primary.form-button, .is-primary.month-button, .month-container .navbar-section .is-primary.year-nav, .month-container .navbar-section .month-list .is-primary.month-button, .is-primary.user-management {
   --bulma-button-h: var(--bulma-primary-h);
   --bulma-button-s: var(--bulma-primary-s);
   --bulma-button-l: var(--bulma-primary-l);
@@ -4054,37 +4283,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-primary:focus-visible, .month-container .navbar-section .is-primary.year-nav:focus-visible, .month-container .navbar-section .month-list .is-primary.month-button:focus-visible, .is-primary.user-management:focus-visible, .is-primary.month-button:focus-visible, .is-primary.form-button:focus-visible, .button.is-primary.is-focused, .month-container .navbar-section .is-primary.is-focused.year-nav, .month-container .navbar-section .month-list .is-primary.is-focused.month-button, .is-primary.is-focused.user-management, .is-primary.is-focused.month-button, .is-primary.is-focused.form-button {
+.button.is-primary:focus-visible, .is-primary.form-button:focus-visible, .is-primary.month-button:focus-visible, .month-container .navbar-section .is-primary.year-nav:focus-visible, .month-container .navbar-section .month-list .is-primary.month-button:focus-visible, .is-primary.user-management:focus-visible, .button.is-primary.is-focused, .is-primary.is-focused.form-button, .is-primary.is-focused.month-button, .month-container .navbar-section .is-primary.is-focused.year-nav, .month-container .navbar-section .month-list .is-primary.is-focused.month-button, .is-primary.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-primary.is-light, .month-container .navbar-section .is-primary.is-light.year-nav, .month-container .navbar-section .month-list .is-primary.is-light.month-button, .is-primary.is-light.user-management, .is-primary.is-light.month-button, .is-primary.is-light.form-button {
+.button.is-primary.is-light, .is-primary.is-light.form-button, .is-primary.is-light.month-button, .month-container .navbar-section .is-primary.is-light.year-nav, .month-container .navbar-section .month-list .is-primary.is-light.month-button, .is-primary.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-primary-light-invert-l);
 }
 
-.button.is-primary.is-dark, .month-container .navbar-section .is-primary.is-dark.year-nav, .month-container .navbar-section .month-list .is-primary.is-dark.month-button, .is-primary.is-dark.user-management, .is-primary.is-dark.month-button, .is-primary.is-dark.form-button {
+.button.is-primary.is-dark, .is-primary.is-dark.form-button, .is-primary.is-dark.month-button, .month-container .navbar-section .is-primary.is-dark.year-nav, .month-container .navbar-section .month-list .is-primary.is-dark.month-button, .is-primary.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-primary-dark-invert-l);
 }
 
-.button.is-primary.is-soft, .month-container .navbar-section .is-primary.is-soft.year-nav, .month-container .navbar-section .month-list .is-primary.is-soft.month-button, .is-primary.is-soft.user-management, .is-primary.is-soft.month-button, .is-primary.is-soft.form-button {
+.button.is-primary.is-soft, .is-primary.is-soft.form-button, .is-primary.is-soft.month-button, .month-container .navbar-section .is-primary.is-soft.year-nav, .month-container .navbar-section .month-list .is-primary.is-soft.month-button, .is-primary.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-primary.is-bold, .month-container .navbar-section .is-primary.is-bold.year-nav, .month-container .navbar-section .month-list .is-primary.is-bold.month-button, .is-primary.is-bold.user-management, .is-primary.is-bold.month-button, .is-primary.is-bold.form-button {
+.button.is-primary.is-bold, .is-primary.is-bold.form-button, .is-primary.is-bold.month-button, .month-container .navbar-section .is-primary.is-bold.year-nav, .month-container .navbar-section .month-list .is-primary.is-bold.month-button, .is-primary.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-primary[disabled], .month-container .navbar-section .is-primary[disabled].year-nav, .month-container .navbar-section .month-list .is-primary[disabled].month-button, .is-primary[disabled].user-management, .is-primary[disabled].month-button, .is-primary[disabled].form-button, fieldset[disabled] .button.is-primary, fieldset[disabled] .month-container .navbar-section .is-primary.year-nav, .month-container .navbar-section fieldset[disabled] .is-primary.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-primary.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-primary.month-button, fieldset[disabled] .is-primary.user-management, fieldset[disabled] .is-primary.month-button, fieldset[disabled] .is-primary.form-button {
+.button.is-primary[disabled], .is-primary[disabled].form-button, .is-primary[disabled].month-button, .month-container .navbar-section .is-primary[disabled].year-nav, .month-container .navbar-section .month-list .is-primary[disabled].month-button, .is-primary[disabled].user-management, fieldset[disabled] .button.is-primary, fieldset[disabled] .is-primary.form-button, fieldset[disabled] .is-primary.month-button, fieldset[disabled] .month-container .navbar-section .is-primary.year-nav, .month-container .navbar-section fieldset[disabled] .is-primary.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-primary.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-primary.month-button, fieldset[disabled] .is-primary.user-management {
   background-color: var(--bulma-primary);
   border-color: var(--bulma-primary);
   box-shadow: none;
 }
 
-.button.is-link, .month-container .navbar-section .is-link.year-nav, .month-container .navbar-section .month-list .is-link.month-button, .is-link.user-management, .is-link.month-button, .is-link.form-button {
+.button.is-link, .is-link.form-button, .is-link.month-button, .month-container .navbar-section .is-link.year-nav, .month-container .navbar-section .month-list .is-link.month-button, .is-link.user-management {
   --bulma-button-h: var(--bulma-link-h);
   --bulma-button-s: var(--bulma-link-s);
   --bulma-button-l: var(--bulma-link-l);
@@ -4095,37 +4324,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-link:focus-visible, .month-container .navbar-section .is-link.year-nav:focus-visible, .month-container .navbar-section .month-list .is-link.month-button:focus-visible, .is-link.user-management:focus-visible, .is-link.month-button:focus-visible, .is-link.form-button:focus-visible, .button.is-link.is-focused, .month-container .navbar-section .is-link.is-focused.year-nav, .month-container .navbar-section .month-list .is-link.is-focused.month-button, .is-link.is-focused.user-management, .is-link.is-focused.month-button, .is-link.is-focused.form-button {
+.button.is-link:focus-visible, .is-link.form-button:focus-visible, .is-link.month-button:focus-visible, .month-container .navbar-section .is-link.year-nav:focus-visible, .month-container .navbar-section .month-list .is-link.month-button:focus-visible, .is-link.user-management:focus-visible, .button.is-link.is-focused, .is-link.is-focused.form-button, .is-link.is-focused.month-button, .month-container .navbar-section .is-link.is-focused.year-nav, .month-container .navbar-section .month-list .is-link.is-focused.month-button, .is-link.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-link.is-light, .month-container .navbar-section .is-link.is-light.year-nav, .month-container .navbar-section .month-list .is-link.is-light.month-button, .is-link.is-light.user-management, .is-link.is-light.month-button, .is-link.is-light.form-button {
+.button.is-link.is-light, .is-link.is-light.form-button, .is-link.is-light.month-button, .month-container .navbar-section .is-link.is-light.year-nav, .month-container .navbar-section .month-list .is-link.is-light.month-button, .is-link.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-link-light-invert-l);
 }
 
-.button.is-link.is-dark, .month-container .navbar-section .is-link.is-dark.year-nav, .month-container .navbar-section .month-list .is-link.is-dark.month-button, .is-link.is-dark.user-management, .is-link.is-dark.month-button, .is-link.is-dark.form-button {
+.button.is-link.is-dark, .is-link.is-dark.form-button, .is-link.is-dark.month-button, .month-container .navbar-section .is-link.is-dark.year-nav, .month-container .navbar-section .month-list .is-link.is-dark.month-button, .is-link.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-link-dark-invert-l);
 }
 
-.button.is-link.is-soft, .month-container .navbar-section .is-link.is-soft.year-nav, .month-container .navbar-section .month-list .is-link.is-soft.month-button, .is-link.is-soft.user-management, .is-link.is-soft.month-button, .is-link.is-soft.form-button {
+.button.is-link.is-soft, .is-link.is-soft.form-button, .is-link.is-soft.month-button, .month-container .navbar-section .is-link.is-soft.year-nav, .month-container .navbar-section .month-list .is-link.is-soft.month-button, .is-link.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-link.is-bold, .month-container .navbar-section .is-link.is-bold.year-nav, .month-container .navbar-section .month-list .is-link.is-bold.month-button, .is-link.is-bold.user-management, .is-link.is-bold.month-button, .is-link.is-bold.form-button {
+.button.is-link.is-bold, .is-link.is-bold.form-button, .is-link.is-bold.month-button, .month-container .navbar-section .is-link.is-bold.year-nav, .month-container .navbar-section .month-list .is-link.is-bold.month-button, .is-link.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-link[disabled], .month-container .navbar-section .is-link[disabled].year-nav, .month-container .navbar-section .month-list .is-link[disabled].month-button, .is-link[disabled].user-management, .is-link[disabled].month-button, .is-link[disabled].form-button, fieldset[disabled] .button.is-link, fieldset[disabled] .month-container .navbar-section .is-link.year-nav, .month-container .navbar-section fieldset[disabled] .is-link.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-link.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-link.month-button, fieldset[disabled] .is-link.user-management, fieldset[disabled] .is-link.month-button, fieldset[disabled] .is-link.form-button {
+.button.is-link[disabled], .is-link[disabled].form-button, .is-link[disabled].month-button, .month-container .navbar-section .is-link[disabled].year-nav, .month-container .navbar-section .month-list .is-link[disabled].month-button, .is-link[disabled].user-management, fieldset[disabled] .button.is-link, fieldset[disabled] .is-link.form-button, fieldset[disabled] .is-link.month-button, fieldset[disabled] .month-container .navbar-section .is-link.year-nav, .month-container .navbar-section fieldset[disabled] .is-link.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-link.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-link.month-button, fieldset[disabled] .is-link.user-management {
   background-color: var(--bulma-link);
   border-color: var(--bulma-link);
   box-shadow: none;
 }
 
-.button.is-info, .month-container .navbar-section .is-info.year-nav, .month-container .navbar-section .month-list .is-info.month-button, .is-info.user-management, .is-info.month-button, .is-info.form-button {
+.button.is-info, .is-info.form-button, .is-info.month-button, .month-container .navbar-section .is-info.year-nav, .month-container .navbar-section .month-list .is-info.month-button, .is-info.user-management {
   --bulma-button-h: var(--bulma-info-h);
   --bulma-button-s: var(--bulma-info-s);
   --bulma-button-l: var(--bulma-info-l);
@@ -4136,37 +4365,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-info:focus-visible, .month-container .navbar-section .is-info.year-nav:focus-visible, .month-container .navbar-section .month-list .is-info.month-button:focus-visible, .is-info.user-management:focus-visible, .is-info.month-button:focus-visible, .is-info.form-button:focus-visible, .button.is-info.is-focused, .month-container .navbar-section .is-info.is-focused.year-nav, .month-container .navbar-section .month-list .is-info.is-focused.month-button, .is-info.is-focused.user-management, .is-info.is-focused.month-button, .is-info.is-focused.form-button {
+.button.is-info:focus-visible, .is-info.form-button:focus-visible, .is-info.month-button:focus-visible, .month-container .navbar-section .is-info.year-nav:focus-visible, .month-container .navbar-section .month-list .is-info.month-button:focus-visible, .is-info.user-management:focus-visible, .button.is-info.is-focused, .is-info.is-focused.form-button, .is-info.is-focused.month-button, .month-container .navbar-section .is-info.is-focused.year-nav, .month-container .navbar-section .month-list .is-info.is-focused.month-button, .is-info.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-info.is-light, .month-container .navbar-section .is-info.is-light.year-nav, .month-container .navbar-section .month-list .is-info.is-light.month-button, .is-info.is-light.user-management, .is-info.is-light.month-button, .is-info.is-light.form-button {
+.button.is-info.is-light, .is-info.is-light.form-button, .is-info.is-light.month-button, .month-container .navbar-section .is-info.is-light.year-nav, .month-container .navbar-section .month-list .is-info.is-light.month-button, .is-info.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-info-light-invert-l);
 }
 
-.button.is-info.is-dark, .month-container .navbar-section .is-info.is-dark.year-nav, .month-container .navbar-section .month-list .is-info.is-dark.month-button, .is-info.is-dark.user-management, .is-info.is-dark.month-button, .is-info.is-dark.form-button {
+.button.is-info.is-dark, .is-info.is-dark.form-button, .is-info.is-dark.month-button, .month-container .navbar-section .is-info.is-dark.year-nav, .month-container .navbar-section .month-list .is-info.is-dark.month-button, .is-info.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-info-dark-invert-l);
 }
 
-.button.is-info.is-soft, .month-container .navbar-section .is-info.is-soft.year-nav, .month-container .navbar-section .month-list .is-info.is-soft.month-button, .is-info.is-soft.user-management, .is-info.is-soft.month-button, .is-info.is-soft.form-button {
+.button.is-info.is-soft, .is-info.is-soft.form-button, .is-info.is-soft.month-button, .month-container .navbar-section .is-info.is-soft.year-nav, .month-container .navbar-section .month-list .is-info.is-soft.month-button, .is-info.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-info.is-bold, .month-container .navbar-section .is-info.is-bold.year-nav, .month-container .navbar-section .month-list .is-info.is-bold.month-button, .is-info.is-bold.user-management, .is-info.is-bold.month-button, .is-info.is-bold.form-button {
+.button.is-info.is-bold, .is-info.is-bold.form-button, .is-info.is-bold.month-button, .month-container .navbar-section .is-info.is-bold.year-nav, .month-container .navbar-section .month-list .is-info.is-bold.month-button, .is-info.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-info[disabled], .month-container .navbar-section .is-info[disabled].year-nav, .month-container .navbar-section .month-list .is-info[disabled].month-button, .is-info[disabled].user-management, .is-info[disabled].month-button, .is-info[disabled].form-button, fieldset[disabled] .button.is-info, fieldset[disabled] .month-container .navbar-section .is-info.year-nav, .month-container .navbar-section fieldset[disabled] .is-info.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-info.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-info.month-button, fieldset[disabled] .is-info.user-management, fieldset[disabled] .is-info.month-button, fieldset[disabled] .is-info.form-button {
+.button.is-info[disabled], .is-info[disabled].form-button, .is-info[disabled].month-button, .month-container .navbar-section .is-info[disabled].year-nav, .month-container .navbar-section .month-list .is-info[disabled].month-button, .is-info[disabled].user-management, fieldset[disabled] .button.is-info, fieldset[disabled] .is-info.form-button, fieldset[disabled] .is-info.month-button, fieldset[disabled] .month-container .navbar-section .is-info.year-nav, .month-container .navbar-section fieldset[disabled] .is-info.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-info.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-info.month-button, fieldset[disabled] .is-info.user-management {
   background-color: var(--bulma-info);
   border-color: var(--bulma-info);
   box-shadow: none;
 }
 
-.button.is-success, .month-container .navbar-section .is-success.year-nav, .month-container .navbar-section .month-list .is-success.month-button, .is-success.user-management, .is-success.month-button, .is-success.form-button {
+.button.is-success, .is-success.form-button, .is-success.month-button, .month-container .navbar-section .is-success.year-nav, .month-container .navbar-section .month-list .is-success.month-button, .is-success.user-management {
   --bulma-button-h: var(--bulma-success-h);
   --bulma-button-s: var(--bulma-success-s);
   --bulma-button-l: var(--bulma-success-l);
@@ -4177,37 +4406,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-success:focus-visible, .month-container .navbar-section .is-success.year-nav:focus-visible, .month-container .navbar-section .month-list .is-success.month-button:focus-visible, .is-success.user-management:focus-visible, .is-success.month-button:focus-visible, .is-success.form-button:focus-visible, .button.is-success.is-focused, .month-container .navbar-section .is-success.is-focused.year-nav, .month-container .navbar-section .month-list .is-success.is-focused.month-button, .is-success.is-focused.user-management, .is-success.is-focused.month-button, .is-success.is-focused.form-button {
+.button.is-success:focus-visible, .is-success.form-button:focus-visible, .is-success.month-button:focus-visible, .month-container .navbar-section .is-success.year-nav:focus-visible, .month-container .navbar-section .month-list .is-success.month-button:focus-visible, .is-success.user-management:focus-visible, .button.is-success.is-focused, .is-success.is-focused.form-button, .is-success.is-focused.month-button, .month-container .navbar-section .is-success.is-focused.year-nav, .month-container .navbar-section .month-list .is-success.is-focused.month-button, .is-success.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-success.is-light, .month-container .navbar-section .is-success.is-light.year-nav, .month-container .navbar-section .month-list .is-success.is-light.month-button, .is-success.is-light.user-management, .is-success.is-light.month-button, .is-success.is-light.form-button {
+.button.is-success.is-light, .is-success.is-light.form-button, .is-success.is-light.month-button, .month-container .navbar-section .is-success.is-light.year-nav, .month-container .navbar-section .month-list .is-success.is-light.month-button, .is-success.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-success-light-invert-l);
 }
 
-.button.is-success.is-dark, .month-container .navbar-section .is-success.is-dark.year-nav, .month-container .navbar-section .month-list .is-success.is-dark.month-button, .is-success.is-dark.user-management, .is-success.is-dark.month-button, .is-success.is-dark.form-button {
+.button.is-success.is-dark, .is-success.is-dark.form-button, .is-success.is-dark.month-button, .month-container .navbar-section .is-success.is-dark.year-nav, .month-container .navbar-section .month-list .is-success.is-dark.month-button, .is-success.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-success-dark-invert-l);
 }
 
-.button.is-success.is-soft, .month-container .navbar-section .is-success.is-soft.year-nav, .month-container .navbar-section .month-list .is-success.is-soft.month-button, .is-success.is-soft.user-management, .is-success.is-soft.month-button, .is-success.is-soft.form-button {
+.button.is-success.is-soft, .is-success.is-soft.form-button, .is-success.is-soft.month-button, .month-container .navbar-section .is-success.is-soft.year-nav, .month-container .navbar-section .month-list .is-success.is-soft.month-button, .is-success.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-success.is-bold, .month-container .navbar-section .is-success.is-bold.year-nav, .month-container .navbar-section .month-list .is-success.is-bold.month-button, .is-success.is-bold.user-management, .is-success.is-bold.month-button, .is-success.is-bold.form-button {
+.button.is-success.is-bold, .is-success.is-bold.form-button, .is-success.is-bold.month-button, .month-container .navbar-section .is-success.is-bold.year-nav, .month-container .navbar-section .month-list .is-success.is-bold.month-button, .is-success.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-success[disabled], .month-container .navbar-section .is-success[disabled].year-nav, .month-container .navbar-section .month-list .is-success[disabled].month-button, .is-success[disabled].user-management, .is-success[disabled].month-button, .is-success[disabled].form-button, fieldset[disabled] .button.is-success, fieldset[disabled] .month-container .navbar-section .is-success.year-nav, .month-container .navbar-section fieldset[disabled] .is-success.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-success.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-success.month-button, fieldset[disabled] .is-success.user-management, fieldset[disabled] .is-success.month-button, fieldset[disabled] .is-success.form-button {
+.button.is-success[disabled], .is-success[disabled].form-button, .is-success[disabled].month-button, .month-container .navbar-section .is-success[disabled].year-nav, .month-container .navbar-section .month-list .is-success[disabled].month-button, .is-success[disabled].user-management, fieldset[disabled] .button.is-success, fieldset[disabled] .is-success.form-button, fieldset[disabled] .is-success.month-button, fieldset[disabled] .month-container .navbar-section .is-success.year-nav, .month-container .navbar-section fieldset[disabled] .is-success.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-success.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-success.month-button, fieldset[disabled] .is-success.user-management {
   background-color: var(--bulma-success);
   border-color: var(--bulma-success);
   box-shadow: none;
 }
 
-.button.is-warning, .month-container .navbar-section .is-warning.year-nav, .month-container .navbar-section .month-list .is-warning.month-button, .is-warning.user-management, .is-warning.month-button, .is-warning.form-button {
+.button.is-warning, .is-warning.form-button, .is-warning.month-button, .month-container .navbar-section .is-warning.year-nav, .month-container .navbar-section .month-list .is-warning.month-button, .is-warning.user-management {
   --bulma-button-h: var(--bulma-warning-h);
   --bulma-button-s: var(--bulma-warning-s);
   --bulma-button-l: var(--bulma-warning-l);
@@ -4218,37 +4447,37 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-warning:focus-visible, .month-container .navbar-section .is-warning.year-nav:focus-visible, .month-container .navbar-section .month-list .is-warning.month-button:focus-visible, .is-warning.user-management:focus-visible, .is-warning.month-button:focus-visible, .is-warning.form-button:focus-visible, .button.is-warning.is-focused, .month-container .navbar-section .is-warning.is-focused.year-nav, .month-container .navbar-section .month-list .is-warning.is-focused.month-button, .is-warning.is-focused.user-management, .is-warning.is-focused.month-button, .is-warning.is-focused.form-button {
+.button.is-warning:focus-visible, .is-warning.form-button:focus-visible, .is-warning.month-button:focus-visible, .month-container .navbar-section .is-warning.year-nav:focus-visible, .month-container .navbar-section .month-list .is-warning.month-button:focus-visible, .is-warning.user-management:focus-visible, .button.is-warning.is-focused, .is-warning.is-focused.form-button, .is-warning.is-focused.month-button, .month-container .navbar-section .is-warning.is-focused.year-nav, .month-container .navbar-section .month-list .is-warning.is-focused.month-button, .is-warning.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-warning.is-light, .month-container .navbar-section .is-warning.is-light.year-nav, .month-container .navbar-section .month-list .is-warning.is-light.month-button, .is-warning.is-light.user-management, .is-warning.is-light.month-button, .is-warning.is-light.form-button {
+.button.is-warning.is-light, .is-warning.is-light.form-button, .is-warning.is-light.month-button, .month-container .navbar-section .is-warning.is-light.year-nav, .month-container .navbar-section .month-list .is-warning.is-light.month-button, .is-warning.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-warning-light-invert-l);
 }
 
-.button.is-warning.is-dark, .month-container .navbar-section .is-warning.is-dark.year-nav, .month-container .navbar-section .month-list .is-warning.is-dark.month-button, .is-warning.is-dark.user-management, .is-warning.is-dark.month-button, .is-warning.is-dark.form-button {
+.button.is-warning.is-dark, .is-warning.is-dark.form-button, .is-warning.is-dark.month-button, .month-container .navbar-section .is-warning.is-dark.year-nav, .month-container .navbar-section .month-list .is-warning.is-dark.month-button, .is-warning.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-warning-dark-invert-l);
 }
 
-.button.is-warning.is-soft, .month-container .navbar-section .is-warning.is-soft.year-nav, .month-container .navbar-section .month-list .is-warning.is-soft.month-button, .is-warning.is-soft.user-management, .is-warning.is-soft.month-button, .is-warning.is-soft.form-button {
+.button.is-warning.is-soft, .is-warning.is-soft.form-button, .is-warning.is-soft.month-button, .month-container .navbar-section .is-warning.is-soft.year-nav, .month-container .navbar-section .month-list .is-warning.is-soft.month-button, .is-warning.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-warning.is-bold, .month-container .navbar-section .is-warning.is-bold.year-nav, .month-container .navbar-section .month-list .is-warning.is-bold.month-button, .is-warning.is-bold.user-management, .is-warning.is-bold.month-button, .is-warning.is-bold.form-button {
+.button.is-warning.is-bold, .is-warning.is-bold.form-button, .is-warning.is-bold.month-button, .month-container .navbar-section .is-warning.is-bold.year-nav, .month-container .navbar-section .month-list .is-warning.is-bold.month-button, .is-warning.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-warning[disabled], .month-container .navbar-section .is-warning[disabled].year-nav, .month-container .navbar-section .month-list .is-warning[disabled].month-button, .is-warning[disabled].user-management, .is-warning[disabled].month-button, .is-warning[disabled].form-button, fieldset[disabled] .button.is-warning, fieldset[disabled] .month-container .navbar-section .is-warning.year-nav, .month-container .navbar-section fieldset[disabled] .is-warning.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-warning.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-warning.month-button, fieldset[disabled] .is-warning.user-management, fieldset[disabled] .is-warning.month-button, fieldset[disabled] .is-warning.form-button {
+.button.is-warning[disabled], .is-warning[disabled].form-button, .is-warning[disabled].month-button, .month-container .navbar-section .is-warning[disabled].year-nav, .month-container .navbar-section .month-list .is-warning[disabled].month-button, .is-warning[disabled].user-management, fieldset[disabled] .button.is-warning, fieldset[disabled] .is-warning.form-button, fieldset[disabled] .is-warning.month-button, fieldset[disabled] .month-container .navbar-section .is-warning.year-nav, .month-container .navbar-section fieldset[disabled] .is-warning.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-warning.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-warning.month-button, fieldset[disabled] .is-warning.user-management {
   background-color: var(--bulma-warning);
   border-color: var(--bulma-warning);
   box-shadow: none;
 }
 
-.button.is-danger, .month-container .navbar-section .is-danger.year-nav, .month-container .navbar-section .month-list .is-danger.month-button, .is-danger.user-management, .is-danger.month-button, .is-danger.form-button {
+.button.is-danger, .is-danger.form-button, .is-danger.month-button, .month-container .navbar-section .is-danger.year-nav, .month-container .navbar-section .month-list .is-danger.month-button, .is-danger.user-management {
   --bulma-button-h: var(--bulma-danger-h);
   --bulma-button-s: var(--bulma-danger-s);
   --bulma-button-l: var(--bulma-danger-l);
@@ -4259,81 +4488,81 @@ a.box:active {
   --bulma-button-outer-shadow-a: 0;
 }
 
-.button.is-danger:focus-visible, .month-container .navbar-section .is-danger.year-nav:focus-visible, .month-container .navbar-section .month-list .is-danger.month-button:focus-visible, .is-danger.user-management:focus-visible, .is-danger.month-button:focus-visible, .is-danger.form-button:focus-visible, .button.is-danger.is-focused, .month-container .navbar-section .is-danger.is-focused.year-nav, .month-container .navbar-section .month-list .is-danger.is-focused.month-button, .is-danger.is-focused.user-management, .is-danger.is-focused.month-button, .is-danger.is-focused.form-button {
+.button.is-danger:focus-visible, .is-danger.form-button:focus-visible, .is-danger.month-button:focus-visible, .month-container .navbar-section .is-danger.year-nav:focus-visible, .month-container .navbar-section .month-list .is-danger.month-button:focus-visible, .is-danger.user-management:focus-visible, .button.is-danger.is-focused, .is-danger.is-focused.form-button, .is-danger.is-focused.month-button, .month-container .navbar-section .is-danger.is-focused.year-nav, .month-container .navbar-section .month-list .is-danger.is-focused.month-button, .is-danger.is-focused.user-management {
   --bulma-button-border-width: 1px;
 }
 
-.button.is-danger.is-light, .month-container .navbar-section .is-danger.is-light.year-nav, .month-container .navbar-section .month-list .is-danger.is-light.month-button, .is-danger.is-light.user-management, .is-danger.is-light.month-button, .is-danger.is-light.form-button {
+.button.is-danger.is-light, .is-danger.is-light.form-button, .is-danger.is-light.month-button, .month-container .navbar-section .is-danger.is-light.year-nav, .month-container .navbar-section .month-list .is-danger.is-light.month-button, .is-danger.is-light.user-management {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-danger-light-invert-l);
 }
 
-.button.is-danger.is-dark, .month-container .navbar-section .is-danger.is-dark.year-nav, .month-container .navbar-section .month-list .is-danger.is-dark.month-button, .is-danger.is-dark.user-management, .is-danger.is-dark.month-button, .is-danger.is-dark.form-button {
+.button.is-danger.is-dark, .is-danger.is-dark.form-button, .is-danger.is-dark.month-button, .month-container .navbar-section .is-danger.is-dark.year-nav, .month-container .navbar-section .month-list .is-danger.is-dark.month-button, .is-danger.is-dark.user-management {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-danger-dark-invert-l);
 }
 
-.button.is-danger.is-soft, .month-container .navbar-section .is-danger.is-soft.year-nav, .month-container .navbar-section .month-list .is-danger.is-soft.month-button, .is-danger.is-soft.user-management, .is-danger.is-soft.month-button, .is-danger.is-soft.form-button {
+.button.is-danger.is-soft, .is-danger.is-soft.form-button, .is-danger.is-soft.month-button, .month-container .navbar-section .is-danger.is-soft.year-nav, .month-container .navbar-section .month-list .is-danger.is-soft.month-button, .is-danger.is-soft.user-management {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
 
-.button.is-danger.is-bold, .month-container .navbar-section .is-danger.is-bold.year-nav, .month-container .navbar-section .month-list .is-danger.is-bold.month-button, .is-danger.is-bold.user-management, .is-danger.is-bold.month-button, .is-danger.is-bold.form-button {
+.button.is-danger.is-bold, .is-danger.is-bold.form-button, .is-danger.is-bold.month-button, .month-container .navbar-section .is-danger.is-bold.year-nav, .month-container .navbar-section .month-list .is-danger.is-bold.month-button, .is-danger.is-bold.user-management {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
 
-.button.is-danger[disabled], .month-container .navbar-section .is-danger[disabled].year-nav, .month-container .navbar-section .month-list .is-danger[disabled].month-button, .is-danger[disabled].user-management, .is-danger[disabled].month-button, .is-danger[disabled].form-button, fieldset[disabled] .button.is-danger, fieldset[disabled] .month-container .navbar-section .is-danger.year-nav, .month-container .navbar-section fieldset[disabled] .is-danger.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-danger.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-danger.month-button, fieldset[disabled] .is-danger.user-management, fieldset[disabled] .is-danger.month-button, fieldset[disabled] .is-danger.form-button {
+.button.is-danger[disabled], .is-danger[disabled].form-button, .is-danger[disabled].month-button, .month-container .navbar-section .is-danger[disabled].year-nav, .month-container .navbar-section .month-list .is-danger[disabled].month-button, .is-danger[disabled].user-management, fieldset[disabled] .button.is-danger, fieldset[disabled] .is-danger.form-button, fieldset[disabled] .is-danger.month-button, fieldset[disabled] .month-container .navbar-section .is-danger.year-nav, .month-container .navbar-section fieldset[disabled] .is-danger.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-danger.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-danger.month-button, fieldset[disabled] .is-danger.user-management {
   background-color: var(--bulma-danger);
   border-color: var(--bulma-danger);
   box-shadow: none;
 }
 
-.button.is-outlined, .month-container .navbar-section .is-outlined.year-nav, .month-container .navbar-section .month-list .is-outlined.month-button, .is-outlined.user-management, .is-outlined.month-button, .is-outlined.form-button {
+.button.is-outlined, .is-outlined.form-button, .is-outlined.month-button, .month-container .navbar-section .is-outlined.year-nav, .month-container .navbar-section .month-list .is-outlined.month-button, .is-outlined.user-management {
   --bulma-button-border-width: max(1px, 0.0625em);
   background-color: transparent;
   border-color: hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l));
   color: hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-l));
 }
 
-.button.is-outlined:hover, .month-container .navbar-section .is-outlined.year-nav:hover, .month-container .navbar-section .month-list .is-outlined.month-button:hover, .is-outlined.user-management:hover, .is-outlined.month-button:hover, .is-outlined.form-button:hover {
+.button.is-outlined:hover, .is-outlined.form-button:hover, .is-outlined.month-button:hover, .month-container .navbar-section .is-outlined.year-nav:hover, .month-container .navbar-section .month-list .is-outlined.month-button:hover, .is-outlined.user-management:hover {
   --bulma-button-border-width: max(2px, 0.125em);
   --bulma-button-outer-shadow-alpha: 1;
 }
 
-.button.is-outlined[disabled], .month-container .navbar-section .is-outlined[disabled].year-nav, .month-container .navbar-section .month-list .is-outlined[disabled].month-button, .is-outlined[disabled].user-management, .is-outlined[disabled].month-button, .is-outlined[disabled].form-button, fieldset[disabled] .button.is-outlined, fieldset[disabled] .month-container .navbar-section .is-outlined.year-nav, .month-container .navbar-section fieldset[disabled] .is-outlined.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-outlined.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-outlined.month-button, fieldset[disabled] .is-outlined.user-management, fieldset[disabled] .is-outlined.month-button, fieldset[disabled] .is-outlined.form-button {
+.button.is-outlined[disabled], .is-outlined[disabled].form-button, .is-outlined[disabled].month-button, .month-container .navbar-section .is-outlined[disabled].year-nav, .month-container .navbar-section .month-list .is-outlined[disabled].month-button, .is-outlined[disabled].user-management, fieldset[disabled] .button.is-outlined, fieldset[disabled] .is-outlined.form-button, fieldset[disabled] .is-outlined.month-button, fieldset[disabled] .month-container .navbar-section .is-outlined.year-nav, .month-container .navbar-section fieldset[disabled] .is-outlined.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-outlined.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-outlined.month-button, fieldset[disabled] .is-outlined.user-management {
   background-color: transparent;
   box-shadow: none;
 }
 
-.button.is-inverted, .month-container .navbar-section .is-inverted.year-nav, .month-container .navbar-section .month-list .is-inverted.month-button, .is-inverted.user-management, .is-inverted.month-button, .is-inverted.form-button {
+.button.is-inverted, .is-inverted.form-button, .is-inverted.month-button, .month-container .navbar-section .is-inverted.year-nav, .month-container .navbar-section .month-list .is-inverted.month-button, .is-inverted.user-management {
   background-color: hsl(var(--bulma-button-h), var(--bulma-button-s), calc(var(--bulma-button-color-l) + var(--bulma-button-background-l-delta)));
   color: hsl(var(--bulma-button-h), var(--bulma-button-s), var(--bulma-button-background-l));
 }
 
-.button.is-text, .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section .month-list .is-text.month-button, .is-text.user-management, .is-text.month-button, .is-text.form-button {
+.button.is-text, .is-text.form-button, .is-text.month-button, .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section .month-list .is-text.month-button, .is-text.user-management {
   background-color: transparent;
   border-color: transparent;
   color: var(--bulma-button-text-color);
   text-decoration: var(--bulma-button-text-decoration);
 }
 
-.button.is-text:hover, .month-container .navbar-section .is-text.year-nav:hover, .month-container .navbar-section .month-list .is-text.month-button:hover, .is-text.user-management:hover, .is-text.month-button:hover, .is-text.form-button:hover, .button.is-text.is-hovered, .month-container .navbar-section .is-text.is-hovered.year-nav, .month-container .navbar-section .month-list .is-text.is-hovered.month-button, .is-text.is-hovered.user-management, .is-text.is-hovered.month-button, .is-text.is-hovered.form-button {
+.button.is-text:hover, .is-text.form-button:hover, .is-text.month-button:hover, .month-container .navbar-section .is-text.year-nav:hover, .month-container .navbar-section .month-list .is-text.month-button:hover, .is-text.user-management:hover, .button.is-text.is-hovered, .is-text.is-hovered.form-button, .is-text.is-hovered.month-button, .month-container .navbar-section .is-text.is-hovered.year-nav, .month-container .navbar-section .month-list .is-text.is-hovered.month-button, .is-text.is-hovered.user-management {
   background-color: var(--bulma-button-text-hover-background-color);
   color: var(--bulma-button-text-hover-color);
 }
 
-.button.is-text:active, .month-container .navbar-section .is-text.year-nav:active, .month-container .navbar-section .month-list .is-text.month-button:active, .is-text.user-management:active, .is-text.month-button:active, .is-text.form-button:active, .button.is-text.is-active, .month-container .navbar-section .is-text.is-active.year-nav, .month-container .navbar-section .month-list .is-text.is-active.month-button, .is-text.is-active.user-management, .is-text.is-active.month-button, .is-text.is-active.form-button {
+.button.is-text:active, .is-text.form-button:active, .is-text.month-button:active, .month-container .navbar-section .is-text.year-nav:active, .month-container .navbar-section .month-list .is-text.month-button:active, .is-text.user-management:active, .button.is-text.is-active, .is-text.is-active.form-button, .is-text.is-active.month-button, .month-container .navbar-section .is-text.is-active.year-nav, .month-container .navbar-section .month-list .is-text.is-active.month-button, .is-text.is-active.user-management {
   color: var(--bulma-button-text-hover-color);
 }
 
-.button.is-text[disabled], .month-container .navbar-section .is-text[disabled].year-nav, .month-container .navbar-section .month-list .is-text[disabled].month-button, .is-text[disabled].user-management, .is-text[disabled].month-button, .is-text[disabled].form-button, fieldset[disabled] .button.is-text, fieldset[disabled] .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section fieldset[disabled] .is-text.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-text.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.user-management, fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.form-button {
+.button.is-text[disabled], .is-text[disabled].form-button, .is-text[disabled].month-button, .month-container .navbar-section .is-text[disabled].year-nav, .month-container .navbar-section .month-list .is-text[disabled].month-button, .is-text[disabled].user-management, fieldset[disabled] .button.is-text, fieldset[disabled] .is-text.form-button, fieldset[disabled] .is-text.month-button, fieldset[disabled] .month-container .navbar-section .is-text.year-nav, .month-container .navbar-section fieldset[disabled] .is-text.year-nav, fieldset[disabled] .month-container .navbar-section .month-list .is-text.month-button, .month-container .navbar-section .month-list fieldset[disabled] .is-text.month-button, fieldset[disabled] .is-text.user-management {
   background-color: transparent;
   border-color: transparent;
   box-shadow: none;
 }
 
-.button.is-ghost, .month-container .navbar-section .is-ghost.year-nav, .month-container .navbar-section .month-list .is-ghost.month-button, .is-ghost.user-management, .is-ghost.month-button, .is-ghost.form-button {
+.button.is-ghost, .is-ghost.form-button, .is-ghost.month-button, .month-container .navbar-section .is-ghost.year-nav, .month-container .navbar-section .month-list .is-ghost.month-button, .is-ghost.user-management {
   background: var(--bulma-button-ghost-background);
   border-color: var(--bulma-button-ghost-border-color);
   box-shadow: none;
@@ -4341,50 +4570,50 @@ a.box:active {
   text-decoration: var(--bulma-button-ghost-decoration);
 }
 
-.button.is-ghost:hover, .month-container .navbar-section .is-ghost.year-nav:hover, .month-container .navbar-section .month-list .is-ghost.month-button:hover, .is-ghost.user-management:hover, .is-ghost.month-button:hover, .is-ghost.form-button:hover, .button.is-ghost.is-hovered, .month-container .navbar-section .is-ghost.is-hovered.year-nav, .month-container .navbar-section .month-list .is-ghost.is-hovered.month-button, .is-ghost.is-hovered.user-management, .is-ghost.is-hovered.month-button, .is-ghost.is-hovered.form-button {
+.button.is-ghost:hover, .is-ghost.form-button:hover, .is-ghost.month-button:hover, .month-container .navbar-section .is-ghost.year-nav:hover, .month-container .navbar-section .month-list .is-ghost.month-button:hover, .is-ghost.user-management:hover, .button.is-ghost.is-hovered, .is-ghost.is-hovered.form-button, .is-ghost.is-hovered.month-button, .month-container .navbar-section .is-ghost.is-hovered.year-nav, .month-container .navbar-section .month-list .is-ghost.is-hovered.month-button, .is-ghost.is-hovered.user-management {
   color: var(--bulma-button-ghost-hover-color);
   text-decoration: var(--bulma-button-ghost-hover-decoration);
 }
 
-.button.is-small, .month-container .navbar-section .is-small.year-nav, .month-container .navbar-section .month-list .is-small.month-button, .is-small.user-management, .is-small.month-button, .is-small.form-button {
+.button.is-small, .is-small.form-button, .is-small.month-button, .month-container .navbar-section .is-small.year-nav, .month-container .navbar-section .month-list .is-small.month-button, .is-small.user-management {
   --bulma-control-size: var(--bulma-size-small);
   --bulma-control-radius: var(--bulma-radius-small);
 }
 
-.button.is-normal, .month-container .navbar-section .is-normal.year-nav, .month-container .navbar-section .month-list .is-normal.month-button, .is-normal.user-management, .is-normal.month-button, .is-normal.form-button {
+.button.is-normal, .is-normal.form-button, .is-normal.month-button, .month-container .navbar-section .is-normal.year-nav, .month-container .navbar-section .month-list .is-normal.month-button, .is-normal.user-management {
   --bulma-control-size: var(--bulma-size-normal);
   --bulma-control-radius: var(--bulma-radius);
 }
 
-.button.is-medium, .month-container .navbar-section .is-medium.year-nav, .month-container .navbar-section .month-list .is-medium.month-button, .is-medium.user-management, .is-medium.month-button, .is-medium.form-button {
+.button.is-medium, .is-medium.form-button, .is-medium.month-button, .month-container .navbar-section .is-medium.year-nav, .month-container .navbar-section .month-list .is-medium.month-button, .is-medium.user-management {
   --bulma-control-size: var(--bulma-size-medium);
   --bulma-control-radius: var(--bulma-radius-medium);
 }
 
-.button.is-large, .month-container .navbar-section .is-large.year-nav, .month-container .navbar-section .month-list .is-large.month-button, .is-large.user-management, .is-large.month-button, .is-large.form-button {
+.button.is-large, .is-large.form-button, .is-large.month-button, .month-container .navbar-section .is-large.year-nav, .month-container .navbar-section .month-list .is-large.month-button, .is-large.user-management {
   --bulma-control-size: var(--bulma-size-large);
   --bulma-control-radius: var(--bulma-radius-medium);
 }
 
-.button.is-fullwidth, .month-container .navbar-section .is-fullwidth.year-nav, .month-container .navbar-section .month-list .is-fullwidth.month-button, .is-fullwidth.user-management, .is-fullwidth.month-button, .is-fullwidth.form-button {
+.button.is-fullwidth, .is-fullwidth.form-button, .is-fullwidth.month-button, .month-container .navbar-section .is-fullwidth.year-nav, .month-container .navbar-section .month-list .is-fullwidth.month-button, .is-fullwidth.user-management {
   display: flex;
   width: 100%;
 }
 
-.button.is-loading, .month-container .navbar-section .is-loading.year-nav, .month-container .navbar-section .month-list .is-loading.month-button, .is-loading.user-management, .is-loading.month-button, .is-loading.form-button {
+.button.is-loading, .is-loading.form-button, .is-loading.month-button, .month-container .navbar-section .is-loading.year-nav, .month-container .navbar-section .month-list .is-loading.month-button, .is-loading.user-management {
   box-shadow: none;
   color: transparent !important;
   pointer-events: none;
 }
 
-.button.is-loading::after, .month-container .navbar-section .is-loading.year-nav::after, .month-container .navbar-section .month-list .is-loading.month-button::after, .is-loading.user-management::after, .is-loading.month-button::after, .is-loading.form-button::after {
+.button.is-loading::after, .is-loading.form-button::after, .is-loading.month-button::after, .month-container .navbar-section .is-loading.year-nav::after, .month-container .navbar-section .month-list .is-loading.month-button::after, .is-loading.user-management::after {
   position: absolute;
   left: calc(50% - 1em * 0.5);
   top: calc(50% - 1em * 0.5);
   position: absolute !important;
 }
 
-.button.is-static, .month-container .navbar-section .is-static.year-nav, .month-container .navbar-section .month-list .is-static.month-button, .is-static.user-management, .is-static.month-button, .is-static.form-button {
+.button.is-static, .is-static.form-button, .is-static.month-button, .month-container .navbar-section .is-static.year-nav, .month-container .navbar-section .month-list .is-static.month-button, .is-static.user-management {
   background-color: var(--bulma-button-static-background-color);
   border-color: var(--bulma-button-static-border-color);
   color: var(--bulma-button-static-color);
@@ -4392,7 +4621,7 @@ a.box:active {
   pointer-events: none;
 }
 
-.button.is-rounded, .month-container .navbar-section .is-rounded.year-nav, .month-container .navbar-section .month-list .is-rounded.month-button, .is-rounded.user-management, .is-rounded.month-button, .is-rounded.form-button {
+.button.is-rounded, .is-rounded.form-button, .is-rounded.month-button, .month-container .navbar-section .is-rounded.year-nav, .month-container .navbar-section .month-list .is-rounded.month-button, .is-rounded.user-management {
   border-radius: var(--bulma-radius-rounded);
   padding-left: calc(var(--bulma-button-padding-horizontal) + 0.25em - var(--bulma-button-border-width));
   padding-right: calc(var(--bulma-button-padding-horizontal) + 0.25em - var(--bulma-button-border-width));
@@ -4425,30 +4654,30 @@ a.box:active {
   gap: 0;
 }
 
-.buttons.has-addons .button:not(:first-child), .buttons.has-addons .month-container .navbar-section .year-nav:not(:first-child), .month-container .navbar-section .buttons.has-addons .year-nav:not(:first-child), .buttons.has-addons .user-management:not(:first-child), .buttons.has-addons .month-button:not(:first-child), .buttons.has-addons .form-button:not(:first-child) {
+.buttons.has-addons .button:not(:first-child), .buttons.has-addons .form-button:not(:first-child), .buttons.has-addons .month-button:not(:first-child), .buttons.has-addons .month-container .navbar-section .year-nav:not(:first-child), .month-container .navbar-section .buttons.has-addons .year-nav:not(:first-child), .buttons.has-addons .user-management:not(:first-child) {
   border-end-start-radius: 0;
   border-start-start-radius: 0;
 }
 
-.buttons.has-addons .button:not(:last-child), .buttons.has-addons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .buttons.has-addons .year-nav:not(:last-child), .buttons.has-addons .user-management:not(:last-child), .buttons.has-addons .month-button:not(:last-child), .buttons.has-addons .form-button:not(:last-child) {
+.buttons.has-addons .button:not(:last-child), .buttons.has-addons .form-button:not(:last-child), .buttons.has-addons .month-button:not(:last-child), .buttons.has-addons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .buttons.has-addons .year-nav:not(:last-child), .buttons.has-addons .user-management:not(:last-child) {
   border-end-end-radius: 0;
   border-start-end-radius: 0;
   margin-inline-end: -1px;
 }
 
-.buttons.has-addons .button:hover, .buttons.has-addons .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .buttons.has-addons .year-nav:hover, .buttons.has-addons .user-management:hover, .buttons.has-addons .month-button:hover, .buttons.has-addons .form-button:hover, .buttons.has-addons .button.is-hovered, .buttons.has-addons .month-container .navbar-section .is-hovered.year-nav, .month-container .navbar-section .buttons.has-addons .is-hovered.year-nav, .buttons.has-addons .is-hovered.user-management, .buttons.has-addons .is-hovered.month-button, .buttons.has-addons .is-hovered.form-button {
+.buttons.has-addons .button:hover, .buttons.has-addons .form-button:hover, .buttons.has-addons .month-button:hover, .buttons.has-addons .month-container .navbar-section .year-nav:hover, .month-container .navbar-section .buttons.has-addons .year-nav:hover, .buttons.has-addons .user-management:hover, .buttons.has-addons .button.is-hovered, .buttons.has-addons .is-hovered.form-button, .buttons.has-addons .is-hovered.month-button, .buttons.has-addons .month-container .navbar-section .is-hovered.year-nav, .month-container .navbar-section .buttons.has-addons .is-hovered.year-nav, .buttons.has-addons .is-hovered.user-management {
   z-index: 2;
 }
 
-.buttons.has-addons .button:focus, .buttons.has-addons .month-container .navbar-section .year-nav:focus, .month-container .navbar-section .buttons.has-addons .year-nav:focus, .buttons.has-addons .user-management:focus, .buttons.has-addons .month-button:focus, .buttons.has-addons .form-button:focus, .buttons.has-addons .button.is-focused, .buttons.has-addons .month-container .navbar-section .is-focused.year-nav, .month-container .navbar-section .buttons.has-addons .is-focused.year-nav, .buttons.has-addons .is-focused.user-management, .buttons.has-addons .is-focused.month-button, .buttons.has-addons .is-focused.form-button, .buttons.has-addons .button:active, .buttons.has-addons .month-container .navbar-section .year-nav:active, .month-container .navbar-section .buttons.has-addons .year-nav:active, .buttons.has-addons .user-management:active, .buttons.has-addons .month-button:active, .buttons.has-addons .form-button:active, .buttons.has-addons .button.is-active, .buttons.has-addons .month-container .navbar-section .is-active.year-nav, .month-container .navbar-section .buttons.has-addons .is-active.year-nav, .buttons.has-addons .is-active.user-management, .buttons.has-addons .is-active.month-button, .buttons.has-addons .is-active.form-button, .buttons.has-addons .button.is-selected, .buttons.has-addons .month-container .navbar-section .is-selected.year-nav, .month-container .navbar-section .buttons.has-addons .is-selected.year-nav, .buttons.has-addons .is-selected.user-management, .buttons.has-addons .is-selected.month-button, .buttons.has-addons .is-selected.form-button {
+.buttons.has-addons .button:focus, .buttons.has-addons .form-button:focus, .buttons.has-addons .month-button:focus, .buttons.has-addons .month-container .navbar-section .year-nav:focus, .month-container .navbar-section .buttons.has-addons .year-nav:focus, .buttons.has-addons .user-management:focus, .buttons.has-addons .button.is-focused, .buttons.has-addons .is-focused.form-button, .buttons.has-addons .is-focused.month-button, .buttons.has-addons .month-container .navbar-section .is-focused.year-nav, .month-container .navbar-section .buttons.has-addons .is-focused.year-nav, .buttons.has-addons .is-focused.user-management, .buttons.has-addons .button:active, .buttons.has-addons .form-button:active, .buttons.has-addons .month-button:active, .buttons.has-addons .month-container .navbar-section .year-nav:active, .month-container .navbar-section .buttons.has-addons .year-nav:active, .buttons.has-addons .user-management:active, .buttons.has-addons .button.is-active, .buttons.has-addons .is-active.form-button, .buttons.has-addons .is-active.month-button, .buttons.has-addons .month-container .navbar-section .is-active.year-nav, .month-container .navbar-section .buttons.has-addons .is-active.year-nav, .buttons.has-addons .is-active.user-management, .buttons.has-addons .button.is-selected, .buttons.has-addons .is-selected.form-button, .buttons.has-addons .is-selected.month-button, .buttons.has-addons .month-container .navbar-section .is-selected.year-nav, .month-container .navbar-section .buttons.has-addons .is-selected.year-nav, .buttons.has-addons .is-selected.user-management {
   z-index: 3;
 }
 
-.buttons.has-addons .button:focus:hover, .buttons.has-addons .month-container .navbar-section .year-nav:focus:hover, .month-container .navbar-section .buttons.has-addons .year-nav:focus:hover, .buttons.has-addons .user-management:focus:hover, .buttons.has-addons .month-button:focus:hover, .buttons.has-addons .form-button:focus:hover, .buttons.has-addons .button.is-focused:hover, .buttons.has-addons .month-container .navbar-section .is-focused.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-focused.year-nav:hover, .buttons.has-addons .is-focused.user-management:hover, .buttons.has-addons .is-focused.month-button:hover, .buttons.has-addons .is-focused.form-button:hover, .buttons.has-addons .button:active:hover, .buttons.has-addons .month-container .navbar-section .year-nav:active:hover, .month-container .navbar-section .buttons.has-addons .year-nav:active:hover, .buttons.has-addons .user-management:active:hover, .buttons.has-addons .month-button:active:hover, .buttons.has-addons .form-button:active:hover, .buttons.has-addons .button.is-active:hover, .buttons.has-addons .month-container .navbar-section .is-active.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-active.year-nav:hover, .buttons.has-addons .is-active.user-management:hover, .buttons.has-addons .is-active.month-button:hover, .buttons.has-addons .is-active.form-button:hover, .buttons.has-addons .button.is-selected:hover, .buttons.has-addons .month-container .navbar-section .is-selected.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-selected.year-nav:hover, .buttons.has-addons .is-selected.user-management:hover, .buttons.has-addons .is-selected.month-button:hover, .buttons.has-addons .is-selected.form-button:hover {
+.buttons.has-addons .button:focus:hover, .buttons.has-addons .form-button:focus:hover, .buttons.has-addons .month-button:focus:hover, .buttons.has-addons .month-container .navbar-section .year-nav:focus:hover, .month-container .navbar-section .buttons.has-addons .year-nav:focus:hover, .buttons.has-addons .user-management:focus:hover, .buttons.has-addons .button.is-focused:hover, .buttons.has-addons .is-focused.form-button:hover, .buttons.has-addons .is-focused.month-button:hover, .buttons.has-addons .month-container .navbar-section .is-focused.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-focused.year-nav:hover, .buttons.has-addons .is-focused.user-management:hover, .buttons.has-addons .button:active:hover, .buttons.has-addons .form-button:active:hover, .buttons.has-addons .month-button:active:hover, .buttons.has-addons .month-container .navbar-section .year-nav:active:hover, .month-container .navbar-section .buttons.has-addons .year-nav:active:hover, .buttons.has-addons .user-management:active:hover, .buttons.has-addons .button.is-active:hover, .buttons.has-addons .is-active.form-button:hover, .buttons.has-addons .is-active.month-button:hover, .buttons.has-addons .month-container .navbar-section .is-active.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-active.year-nav:hover, .buttons.has-addons .is-active.user-management:hover, .buttons.has-addons .button.is-selected:hover, .buttons.has-addons .is-selected.form-button:hover, .buttons.has-addons .is-selected.month-button:hover, .buttons.has-addons .month-container .navbar-section .is-selected.year-nav:hover, .month-container .navbar-section .buttons.has-addons .is-selected.year-nav:hover, .buttons.has-addons .is-selected.user-management:hover {
   z-index: 4;
 }
 
-.buttons.has-addons .button.is-expanded, .buttons.has-addons .month-container .navbar-section .is-expanded.year-nav, .month-container .navbar-section .buttons.has-addons .is-expanded.year-nav, .buttons.has-addons .is-expanded.user-management, .buttons.has-addons .is-expanded.month-button, .buttons.has-addons .is-expanded.form-button {
+.buttons.has-addons .button.is-expanded, .buttons.has-addons .is-expanded.form-button, .buttons.has-addons .is-expanded.month-button, .buttons.has-addons .month-container .navbar-section .is-expanded.year-nav, .month-container .navbar-section .buttons.has-addons .is-expanded.year-nav, .buttons.has-addons .is-expanded.user-management {
   flex-grow: 1;
   flex-shrink: 1;
 }
@@ -4462,32 +4691,32 @@ a.box:active {
 }
 
 @media screen and (max-width: 768px) {
-  .button.is-responsive.is-small, .month-container .navbar-section .is-responsive.is-small.year-nav, .month-container .navbar-section .month-list .is-responsive.is-small.month-button, .is-responsive.is-small.user-management, .is-responsive.is-small.month-button, .is-responsive.is-small.form-button {
+  .button.is-responsive.is-small, .is-responsive.is-small.form-button, .is-responsive.is-small.month-button, .month-container .navbar-section .is-responsive.is-small.year-nav, .month-container .navbar-section .month-list .is-responsive.is-small.month-button, .is-responsive.is-small.user-management {
     font-size: calc(var(--bulma-size-small) * 0.75);
   }
-  .button.is-responsive, .month-container .navbar-section .is-responsive.year-nav, .month-container .navbar-section .month-list .is-responsive.month-button, .is-responsive.user-management, .is-responsive.month-button, .is-responsive.form-button,
+  .button.is-responsive, .is-responsive.form-button, .is-responsive.month-button, .month-container .navbar-section .is-responsive.year-nav, .month-container .navbar-section .month-list .is-responsive.month-button, .is-responsive.user-management,
   .button.is-responsive.is-normal {
     font-size: calc(var(--bulma-size-small) * 0.875);
   }
-  .button.is-responsive.is-medium, .month-container .navbar-section .is-responsive.is-medium.year-nav, .month-container .navbar-section .month-list .is-responsive.is-medium.month-button, .is-responsive.is-medium.user-management, .is-responsive.is-medium.month-button, .is-responsive.is-medium.form-button {
+  .button.is-responsive.is-medium, .is-responsive.is-medium.form-button, .is-responsive.is-medium.month-button, .month-container .navbar-section .is-responsive.is-medium.year-nav, .month-container .navbar-section .month-list .is-responsive.is-medium.month-button, .is-responsive.is-medium.user-management {
     font-size: var(--bulma-size-small);
   }
-  .button.is-responsive.is-large, .month-container .navbar-section .is-responsive.is-large.year-nav, .month-container .navbar-section .month-list .is-responsive.is-large.month-button, .is-responsive.is-large.user-management, .is-responsive.is-large.month-button, .is-responsive.is-large.form-button {
+  .button.is-responsive.is-large, .is-responsive.is-large.form-button, .is-responsive.is-large.month-button, .month-container .navbar-section .is-responsive.is-large.year-nav, .month-container .navbar-section .month-list .is-responsive.is-large.month-button, .is-responsive.is-large.user-management {
     font-size: var(--bulma-size-normal);
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1023px) {
-  .button.is-responsive.is-small, .month-container .navbar-section .is-responsive.is-small.year-nav, .month-container .navbar-section .month-list .is-responsive.is-small.month-button, .is-responsive.is-small.user-management, .is-responsive.is-small.month-button, .is-responsive.is-small.form-button {
+  .button.is-responsive.is-small, .is-responsive.is-small.form-button, .is-responsive.is-small.month-button, .month-container .navbar-section .is-responsive.is-small.year-nav, .month-container .navbar-section .month-list .is-responsive.is-small.month-button, .is-responsive.is-small.user-management {
     font-size: calc(var(--bulma-size-small) * 0.875);
   }
-  .button.is-responsive, .month-container .navbar-section .is-responsive.year-nav, .month-container .navbar-section .month-list .is-responsive.month-button, .is-responsive.user-management, .is-responsive.month-button, .is-responsive.form-button,
+  .button.is-responsive, .is-responsive.form-button, .is-responsive.month-button, .month-container .navbar-section .is-responsive.year-nav, .month-container .navbar-section .month-list .is-responsive.month-button, .is-responsive.user-management,
   .button.is-responsive.is-normal {
     font-size: var(--bulma-size-small);
   }
-  .button.is-responsive.is-medium, .month-container .navbar-section .is-responsive.is-medium.year-nav, .month-container .navbar-section .month-list .is-responsive.is-medium.month-button, .is-responsive.is-medium.user-management, .is-responsive.is-medium.month-button, .is-responsive.is-medium.form-button {
+  .button.is-responsive.is-medium, .is-responsive.is-medium.form-button, .is-responsive.is-medium.month-button, .month-container .navbar-section .is-responsive.is-medium.year-nav, .month-container .navbar-section .month-list .is-responsive.is-medium.month-button, .is-responsive.is-medium.user-management {
     font-size: var(--bulma-size-normal);
   }
-  .button.is-responsive.is-large, .month-container .navbar-section .is-responsive.is-large.year-nav, .month-container .navbar-section .month-list .is-responsive.is-large.month-button, .is-responsive.is-large.user-management, .is-responsive.is-large.month-button, .is-responsive.is-large.form-button {
+  .button.is-responsive.is-large, .is-responsive.is-large.form-button, .is-responsive.is-large.month-button, .month-container .navbar-section .is-responsive.is-large.year-nav, .month-container .navbar-section .month-list .is-responsive.is-large.month-button, .is-responsive.is-large.user-management {
     font-size: var(--bulma-size-medium);
   }
 }
@@ -5170,7 +5399,7 @@ div.icon-text {
   position: relative;
 }
 
-.notification a:not(.button):not(.user-management):not(.month-button):not(.form-button):not(.dropdown-item) {
+.notification a:not(.button):not(.form-button):not(.month-button):not(.user-management):not(.dropdown-item) {
   color: currentColor;
   text-decoration: underline;
 }
@@ -7134,27 +7363,27 @@ button.tag:active,
   margin-inline-end: -1px;
 }
 
-.field.has-addons .control:not(:first-child):not(:last-child) .button, .field.has-addons .control:not(:first-child):not(:last-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:not(:first-child):not(:last-child) .year-nav, .field.has-addons .control:not(:first-child):not(:last-child) .user-management, .field.has-addons .control:not(:first-child):not(:last-child) .month-button, .field.has-addons .control:not(:first-child):not(:last-child) .form-button,
+.field.has-addons .control:not(:first-child):not(:last-child) .button, .field.has-addons .control:not(:first-child):not(:last-child) .form-button, .field.has-addons .control:not(:first-child):not(:last-child) .month-button, .field.has-addons .control:not(:first-child):not(:last-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:not(:first-child):not(:last-child) .year-nav, .field.has-addons .control:not(:first-child):not(:last-child) .user-management,
 .field.has-addons .control:not(:first-child):not(:last-child) .input,
 .field.has-addons .control:not(:first-child):not(:last-child) .select select {
   border-radius: 0;
 }
 
-.field.has-addons .control:first-child:not(:only-child) .button, .field.has-addons .control:first-child:not(:only-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:first-child:not(:only-child) .year-nav, .field.has-addons .control:first-child:not(:only-child) .user-management, .field.has-addons .control:first-child:not(:only-child) .month-button, .field.has-addons .control:first-child:not(:only-child) .form-button,
+.field.has-addons .control:first-child:not(:only-child) .button, .field.has-addons .control:first-child:not(:only-child) .form-button, .field.has-addons .control:first-child:not(:only-child) .month-button, .field.has-addons .control:first-child:not(:only-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:first-child:not(:only-child) .year-nav, .field.has-addons .control:first-child:not(:only-child) .user-management,
 .field.has-addons .control:first-child:not(:only-child) .input,
 .field.has-addons .control:first-child:not(:only-child) .select select {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 }
 
-.field.has-addons .control:last-child:not(:only-child) .button, .field.has-addons .control:last-child:not(:only-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:last-child:not(:only-child) .year-nav, .field.has-addons .control:last-child:not(:only-child) .user-management, .field.has-addons .control:last-child:not(:only-child) .month-button, .field.has-addons .control:last-child:not(:only-child) .form-button,
+.field.has-addons .control:last-child:not(:only-child) .button, .field.has-addons .control:last-child:not(:only-child) .form-button, .field.has-addons .control:last-child:not(:only-child) .month-button, .field.has-addons .control:last-child:not(:only-child) .month-container .navbar-section .year-nav, .month-container .navbar-section .field.has-addons .control:last-child:not(:only-child) .year-nav, .field.has-addons .control:last-child:not(:only-child) .user-management,
 .field.has-addons .control:last-child:not(:only-child) .input,
 .field.has-addons .control:last-child:not(:only-child) .select select {
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 }
 
-.field.has-addons .control .button:not([disabled]):hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):hover, .field.has-addons .control .user-management:not([disabled]):hover, .field.has-addons .control .month-button:not([disabled]):hover, .field.has-addons .control .form-button:not([disabled]):hover, .field.has-addons .control .button:not([disabled]).is-hovered, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-hovered, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-hovered, .field.has-addons .control .user-management:not([disabled]).is-hovered, .field.has-addons .control .month-button:not([disabled]).is-hovered, .field.has-addons .control .form-button:not([disabled]).is-hovered,
+.field.has-addons .control .button:not([disabled]):hover, .field.has-addons .control .form-button:not([disabled]):hover, .field.has-addons .control .month-button:not([disabled]):hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):hover, .field.has-addons .control .user-management:not([disabled]):hover, .field.has-addons .control .button:not([disabled]).is-hovered, .field.has-addons .control .form-button:not([disabled]).is-hovered, .field.has-addons .control .month-button:not([disabled]).is-hovered, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-hovered, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-hovered, .field.has-addons .control .user-management:not([disabled]).is-hovered,
 .field.has-addons .control .input:not([disabled]):hover,
 .field.has-addons .control .input:not([disabled]).is-hovered,
 .field.has-addons .control .select select:not([disabled]):hover,
@@ -7162,7 +7391,7 @@ button.tag:active,
   z-index: 2;
 }
 
-.field.has-addons .control .button:not([disabled]):focus, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):focus, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):focus, .field.has-addons .control .user-management:not([disabled]):focus, .field.has-addons .control .month-button:not([disabled]):focus, .field.has-addons .control .form-button:not([disabled]):focus, .field.has-addons .control .button:not([disabled]).is-focused, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-focused, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-focused, .field.has-addons .control .user-management:not([disabled]).is-focused, .field.has-addons .control .month-button:not([disabled]).is-focused, .field.has-addons .control .form-button:not([disabled]).is-focused, .field.has-addons .control .button:not([disabled]):active, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):active, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):active, .field.has-addons .control .user-management:not([disabled]):active, .field.has-addons .control .month-button:not([disabled]):active, .field.has-addons .control .form-button:not([disabled]):active, .field.has-addons .control .button:not([disabled]).is-active, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-active, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-active, .field.has-addons .control .user-management:not([disabled]).is-active, .field.has-addons .control .month-button:not([disabled]).is-active, .field.has-addons .control .form-button:not([disabled]).is-active,
+.field.has-addons .control .button:not([disabled]):focus, .field.has-addons .control .form-button:not([disabled]):focus, .field.has-addons .control .month-button:not([disabled]):focus, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):focus, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):focus, .field.has-addons .control .user-management:not([disabled]):focus, .field.has-addons .control .button:not([disabled]).is-focused, .field.has-addons .control .form-button:not([disabled]).is-focused, .field.has-addons .control .month-button:not([disabled]).is-focused, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-focused, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-focused, .field.has-addons .control .user-management:not([disabled]).is-focused, .field.has-addons .control .button:not([disabled]):active, .field.has-addons .control .form-button:not([disabled]):active, .field.has-addons .control .month-button:not([disabled]):active, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):active, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):active, .field.has-addons .control .user-management:not([disabled]):active, .field.has-addons .control .button:not([disabled]).is-active, .field.has-addons .control .form-button:not([disabled]).is-active, .field.has-addons .control .month-button:not([disabled]).is-active, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-active, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-active, .field.has-addons .control .user-management:not([disabled]).is-active,
 .field.has-addons .control .input:not([disabled]):focus,
 .field.has-addons .control .input:not([disabled]).is-focused,
 .field.has-addons .control .input:not([disabled]):active,
@@ -7174,7 +7403,7 @@ button.tag:active,
   z-index: 3;
 }
 
-.field.has-addons .control .button:not([disabled]):focus:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):focus:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):focus:hover, .field.has-addons .control .user-management:not([disabled]):focus:hover, .field.has-addons .control .month-button:not([disabled]):focus:hover, .field.has-addons .control .form-button:not([disabled]):focus:hover, .field.has-addons .control .button:not([disabled]).is-focused:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-focused:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-focused:hover, .field.has-addons .control .user-management:not([disabled]).is-focused:hover, .field.has-addons .control .month-button:not([disabled]).is-focused:hover, .field.has-addons .control .form-button:not([disabled]).is-focused:hover, .field.has-addons .control .button:not([disabled]):active:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):active:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):active:hover, .field.has-addons .control .user-management:not([disabled]):active:hover, .field.has-addons .control .month-button:not([disabled]):active:hover, .field.has-addons .control .form-button:not([disabled]):active:hover, .field.has-addons .control .button:not([disabled]).is-active:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-active:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-active:hover, .field.has-addons .control .user-management:not([disabled]).is-active:hover, .field.has-addons .control .month-button:not([disabled]).is-active:hover, .field.has-addons .control .form-button:not([disabled]).is-active:hover,
+.field.has-addons .control .button:not([disabled]):focus:hover, .field.has-addons .control .form-button:not([disabled]):focus:hover, .field.has-addons .control .month-button:not([disabled]):focus:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):focus:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):focus:hover, .field.has-addons .control .user-management:not([disabled]):focus:hover, .field.has-addons .control .button:not([disabled]).is-focused:hover, .field.has-addons .control .form-button:not([disabled]).is-focused:hover, .field.has-addons .control .month-button:not([disabled]).is-focused:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-focused:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-focused:hover, .field.has-addons .control .user-management:not([disabled]).is-focused:hover, .field.has-addons .control .button:not([disabled]):active:hover, .field.has-addons .control .form-button:not([disabled]):active:hover, .field.has-addons .control .month-button:not([disabled]):active:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]):active:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]):active:hover, .field.has-addons .control .user-management:not([disabled]):active:hover, .field.has-addons .control .button:not([disabled]).is-active:hover, .field.has-addons .control .form-button:not([disabled]).is-active:hover, .field.has-addons .control .month-button:not([disabled]).is-active:hover, .field.has-addons .control .month-container .navbar-section .year-nav:not([disabled]).is-active:hover, .month-container .navbar-section .field.has-addons .control .year-nav:not([disabled]).is-active:hover, .field.has-addons .control .user-management:not([disabled]).is-active:hover,
 .field.has-addons .control .input:not([disabled]):focus:hover,
 .field.has-addons .control .input:not([disabled]).is-focused:hover,
 .field.has-addons .control .input:not([disabled]):active:hover,
@@ -7845,7 +8074,7 @@ button.dropdown-item.is-selected {
   color: currentColor;
 }
 
-.message a:not(.button):not(.user-management):not(.month-button):not(.form-button):not(.tag):not(.dropdown-item) {
+.message a:not(.button):not(.form-button):not(.month-button):not(.user-management):not(.tag):not(.dropdown-item) {
   color: currentColor;
   text-decoration: underline;
 }
@@ -14997,10 +15226,10 @@ label.panel-block:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .hero-buttons .button, .hero-buttons .month-container .navbar-section .year-nav, .month-container .navbar-section .hero-buttons .year-nav, .hero-buttons .month-container .navbar-section .month-list .month-button, .month-container .navbar-section .month-list .hero-buttons .month-button, .hero-buttons .user-management, .hero-buttons .month-button, .hero-buttons .form-button {
+  .hero-buttons .button, .hero-buttons .form-button, .hero-buttons .month-button, .hero-buttons .month-container .navbar-section .year-nav, .month-container .navbar-section .hero-buttons .year-nav, .hero-buttons .month-container .navbar-section .month-list .month-button, .month-container .navbar-section .month-list .hero-buttons .month-button, .hero-buttons .user-management {
     display: flex;
   }
-  .hero-buttons .button:not(:last-child), .hero-buttons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .hero-buttons .year-nav:not(:last-child), .hero-buttons .month-container .navbar-section .month-list .month-button:not(:last-child), .month-container .navbar-section .month-list .hero-buttons .month-button:not(:last-child), .hero-buttons .user-management:not(:last-child), .hero-buttons .month-button:not(:last-child), .hero-buttons .form-button:not(:last-child) {
+  .hero-buttons .button:not(:last-child), .hero-buttons .form-button:not(:last-child), .hero-buttons .month-button:not(:last-child), .hero-buttons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .hero-buttons .year-nav:not(:last-child), .hero-buttons .month-container .navbar-section .month-list .month-button:not(:last-child), .month-container .navbar-section .month-list .hero-buttons .month-button:not(:last-child), .hero-buttons .user-management:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 }
@@ -15009,7 +15238,7 @@ label.panel-block:hover {
     display: flex;
     justify-content: center;
   }
-  .hero-buttons .button:not(:last-child), .hero-buttons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .hero-buttons .year-nav:not(:last-child), .hero-buttons .month-container .navbar-section .month-list .month-button:not(:last-child), .month-container .navbar-section .month-list .hero-buttons .month-button:not(:last-child), .hero-buttons .user-management:not(:last-child), .hero-buttons .month-button:not(:last-child), .hero-buttons .form-button:not(:last-child) {
+  .hero-buttons .button:not(:last-child), .hero-buttons .form-button:not(:last-child), .hero-buttons .month-button:not(:last-child), .hero-buttons .month-container .navbar-section .year-nav:not(:last-child), .month-container .navbar-section .hero-buttons .year-nav:not(:last-child), .hero-buttons .month-container .navbar-section .month-list .month-button:not(:last-child), .month-container .navbar-section .month-list .hero-buttons .month-button:not(:last-child), .hero-buttons .user-management:not(:last-child) {
     margin-inline-end: 1.5rem;
   }
 }

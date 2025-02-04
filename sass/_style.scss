@@ -1,10 +1,33 @@
-@import "variables";
+@import "variables"; // 変数をインポート
+
+/* 📌 ライトモード背景色 */
+$bulma-background: #222; /* ライトグレー背景 */
+
+/* 📌 基本的なボディのスタイル */
+body {
+  background-color: $bulma-background;
+  color: #333; /* 黒に近い色 */
+  font-family: $base-font;
+}
+section{
+  margin: 2rem auto !important;
+}
+
+/* 共通のリンクスタイル */
+a {
+  color: $primary-color; /* リンクカラー */
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
 
 /* 📌 追加・設定ボタン */
 .form-button {
   @extend .button;
   min-width: 120px;
-  background-color: #1c88c7; /* ヘッダーのボタン色に統一 */
+  background-color: $primary-color; /* ヘッダーのボタン色 */
   color: white;
   border: none;
   border-radius: 5px;
@@ -13,7 +36,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #1778a4; /* ホバー時のカラー */
+    background-color: darken($primary-color, 10%); /* ホバー時に色を少し暗く */
   }
 }
 
@@ -23,13 +46,13 @@
   max-width: 780px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #222;
+  background-color: #fff; /* 明るい背景 */
   border-radius: 8px;
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: white;
+    color: #333; /* 明るい文字色 */
     text-align: center;
     margin-bottom: 20px;
   }
@@ -41,7 +64,7 @@
 
     label {
       font-size: 1rem;
-      color: white;
+      color: #333; /* ライトモード用の文字色 */
     }
 
     input {
@@ -49,13 +72,13 @@
       font-size: 1rem;
       border-radius: 5px;
       border: 1px solid #ccc;
-      background-color: #444;
-      color: white;
+      background-color: #f5f5f5; /* 明るい入力フィールド */
+      color: #333; /* テキスト色 */
     }
 
     button {
       padding: 10px;
-      //background-color: #1c88c7; /* ヘッダーのボタン色 */
+      background-color: $primary-color; /* アクティブカラー */
       color: white;
       border: none;
       border-radius: 5px;
@@ -63,7 +86,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #1778a4;
+        background-color: darken($primary-color, 10%);
       }
     }
   }
@@ -85,13 +108,13 @@
   max-width: 780px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #222;
+  background-color: #fff; /* 明るい背景 */
   border-radius: 8px;
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: white;
+    color: #333; /* 明るい文字色 */
     text-align: center;
     margin-bottom: 20px;
   }
@@ -103,7 +126,7 @@
 
     label {
       font-size: 1rem;
-      color: white;
+      color: #333; /* ライトモード用の文字色 */
     }
 
     input {
@@ -111,13 +134,13 @@
       font-size: 1rem;
       border-radius: 5px;
       border: 1px solid #ccc;
-      background-color: #444;
-      color: white;
+      background-color: #f5f5f5; /* 明るい入力フィールド */
+      color: #333; /* テキスト色 */
     }
 
     button {
       padding: 10px;
-      //background-color: #1c88c7; /* ヘッダーのボタン色 */
+      background-color: $primary-color; /* アクティブカラー */
       color: white;
       border: none;
       border-radius: 5px;
@@ -125,7 +148,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: #1778a4;
+        background-color: darken($primary-color, 10%);
       }
     }
   }
@@ -139,4 +162,15 @@
       width: 100%;
     }
   }
+}
+
+/* 📌 2025年3月以降のボタンを非アクティブに */
+.month-button {
+  @extend .button;
+}
+
+.month-button.inactive {
+  background-color: #1a1a1a;
+  color: #444;
+  cursor: not-allowed;
 }

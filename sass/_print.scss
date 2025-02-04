@@ -1,0 +1,75 @@
+@media print {
+  /* 全体の余白を減らす */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black!important; /* フォントカラーを黒に設定 */
+  }
+
+  section {
+    margin: 0!important;
+    padding: 0 7em!important;
+  }
+
+  /* ヘッダーやフッターを非表示に */
+  header, footer {
+    display: none;
+  }
+
+  /* 不要なナビゲーションやボタンを非表示に */
+  .button, .hamburger-menu, .nav-menu {
+    display: none !important;
+  }
+  .month-container{
+    h2{color: black}
+  }
+  .expenses-section{
+    h2{color: black}
+  }
+  /* 経費一覧（テーブル）のスタイル */
+  .expense-table {
+    width: 100%;
+    border: 1px solid black; /* テーブルの罫線を黒に設定 */
+    border-collapse: collapse;
+
+    th, td {
+      padding: 4px;
+      border: 1px solid black; /* セルの罫線を黒に設定 */
+      text-align: left; /* 左寄せ */
+      font-size: 10pt;  /* フォントサイズを小さくする */
+      color: black!important; /* フォントカラーを黒に設定 */
+    }
+
+    thead {
+      background-color: #f1f1f1;
+    }
+
+    tbody tr {
+      background-color: #fff;
+    }
+
+    tbody tr:hover {
+      background-color: transparent; /* 印刷時の背景色は消す */
+    }
+    .ope {
+      display: none;
+    }
+  }
+
+  /* ページ設定 */
+  @page {
+    margin: 0mm; /* ページの余白 */
+  }
+
+  /* 印刷用のボタンやリンクの非表示 */
+  .expense-edit, .expense-delete, .expense-list, .expense-form, .budget-form {
+    display: none;
+  }
+
+  /* 合計や予算、残り予算の数値を右寄せ */
+  .expense-table tfoot td {
+    text-align: right !important;
+  }
+}

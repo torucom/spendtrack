@@ -11,7 +11,9 @@
   flex-direction: column; /* 年表示は縦に配置 */
   align-items: center;
   gap: 20px; /* 年表示と月リストの間に余白 */
-
+  h2{
+    color: white;
+  }
   .selected-year {
     font-size: 1.8rem;
     font-weight: bold;
@@ -89,11 +91,12 @@ header {
     gap: 5px; /* ロゴとユーザー情報の間に隙間をあける */
 
     .logo {
-      width: 150px; /* ロゴのサイズ */
+      width: 230px; /* ロゴのサイズ */
+      margin-bottom: .3rem;
     }
 
     .user-info {
-      font-size: 1.1rem;
+      font-size: .8rem;
     }
   }
 
