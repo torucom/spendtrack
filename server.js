@@ -87,7 +87,6 @@ app.get("/", (req, res) => {
 
     // フィルタリングして、選択された月の経費だけを表示
     const filteredExpenses = expensesWithUserNames.filter(expense =>
-        expense.userId === req.session.userId &&
         expense.date.startsWith(`${selectedYear}-${selectedMonth}`)
     );
 
@@ -106,8 +105,8 @@ app.get("/", (req, res) => {
     });
     const dbRegisteredMonths = monthList.filter(m => m.active).map(m => m.month); // 📌 登録済みの月だけ抽出
 
-    // アクティブな月を設定
-    const activeMonth = selectedMonth;
+    // activeMonthを設定（最初の登録月を選択）
+    const activeMonth = dbRegisteredMonths.length > 0 ? dbRegisteredMonths[0] : selectedMonth;
 
     res.render("index", {
         user,
@@ -115,11 +114,11 @@ app.get("/", (req, res) => {
         totalExpenses,
         selectedYear,
         selectedMonth,
-        activeMonth, // アクティブ月を渡す
         previousYear: selectedYear - 1,
         nextYear: selectedYear + 1,
         monthList,
-        dbRegisteredMonths, // 📌 ここで EJS に渡す！
+        dbRegisteredMonths,
+        activeMonth,  // activeMonthをEJSに渡す
         budget: budgetData,
         currentBudget,
         remainingBudget
@@ -149,69 +148,6 @@ app.post("/login", async (req, res) => {
 
 app.post("/logout", (req, res) => {
     req.session.destroy(() => res.redirect("/login"));
-});
-
-/* ==============================
-   🔑 ユーザー管理ページ
-================================= */
-app.get("/manage-users", (req, res) => {
-    if (!req.session.userId || req.session.role !== "admin") {
-        return res.status(403).send("アクセス権限がありません");
-    }
-
-    const users = loadUsers(); // ユーザー一覧を取得
-    res.render("manage-users", { users, currentUser: req.session });
-});
-
-app.post("/manage-users/add", async (req, res) => {
-    if (!req.session.userId || req.session.role !== "admin") {
-        return res.status(403).send("Unauthorized");
-    }
-
-    const { id, email, password, name, role } = req.body;
-    if (!id || !email || !password || !name) {
-        return res.status(400).send("すべての項目を入力してください。");
-    }
-
-    let users = loadUsers();
-    if (users.some(user => user.id === id)) {
-        return res.status(400).send("このIDは既に登録されています。");
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    users.push({ id, email, password: hashedPassword, name, role: role || "user" });
-
-    saveJson(USERS_FILE, users);
-    res.redirect("/manage-users");
-});
-
-app.post("/manage-users/delete", (req, res) => {
-    if (!req.session.userId || req.session.role !== "admin") {
-        console.log("🛑 ユーザー削除拒否: 権限がありません");
-        return res.status(403).send("Unauthorized");
-    }
-
-    console.log("🛠️ 削除リクエスト受信 (raw):", req.body);
-
-    if (!req.body.id) {
-        console.log("⚠️ 削除リクエストにIDが含まれていません");
-        return res.status(400).send("削除するユーザーIDが不明です。");
-    }
-
-    let users = loadUsers();
-    const initialUserCount = users.length;
-
-    users = users.filter(user => user.id !== req.body.id);
-
-    if (users.length === initialUserCount) {
-        console.log(`⚠️ 指定されたID(${req.body.id})のユーザーが見つかりません`);
-        return res.status(404).send("指定されたユーザーが見つかりません。");
-    }
-
-    saveJson(USERS_FILE, users);
-    console.log(`✅ ユーザー ${req.body.id} を削除しました`);
-
-    res.redirect("/manage-users");
 });
 
 /* ==============================

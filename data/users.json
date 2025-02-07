@@ -1,30 +1,16 @@
 [
   {
-    "id": "admin",
-    "email": "admin@spendtrack.com",
-    "password": "$2b$10$31HWdCng3VpQky5LcWKjKerZQfc.E.mDNe23vUIfkO0mk5iMrSvyG",
-    "name": "管理者",
+    "id": "endo",
+    "email": "endo-toru@be-quest.co.jp",
+    "password": "$2b$10$sEc1/ps.Zqv2DaIVF4Ljz.mfl5HJTA4qhtXX6JPlRtgWvJzjgeHc6",
+    "name": "遠藤",
     "role": "admin"
   },
   {
-    "id": "user",
-    "email": "user@spendtrack.com",
-    "password": "$2b$10$zRdd3.GBEFT6rzNyCrsJxuo6hW8bsL0k5RsE72sjK0G/v24.Psa3y",
-    "name": "ユーザー",
-    "role": "user"
-  },
-  {
-    "id": "test",
-    "email": "test@spendtrack.com",
-    "password": "$2b$10$5SbFBKtO/hem4KNqcK6jW.L1ZQxUwTpSqBkXeR0hM90L3fqMKEUCq",
-    "name": "test",
-    "role": "user"
-  },
-  {
-    "id": "test2",
-    "email": "test2@spendtrack.com",
-    "password": "$2b$10$fJaGdTj1Bsixwiz/4lxG9exq.RH2c.UgZQG.4Kqipg5PEyQe9aerC",
-    "name": "test2",
+    "id": "haruta",
+    "email": "haruta-mako@be-quest.co.jp",
+    "password": "$2b$10$mTAa.9BYFT5afCp8C9et.uJ25Zt2Z1YuGQ4AxrDRL.Hw3Q1KwL3Qu",
+    "name": "春田",
     "role": "user"
   }
 ]

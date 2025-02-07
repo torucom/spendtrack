@@ -1,32 +1,44 @@
 [
   {
-    "date": "2025-01-31",
-    "description": "test",
-    "amount": 100000,
-    "userId": "admin",
-    "userName": "管理者",
-    "id": "7d1058e9-a00b-4ac1-a298-3ddfaf2ea382"
+    "id": "4541e2c0-1a77-4fba-b6c8-3fd29017b853",
+    "date": "2025-02-05",
+    "description": "飲食代",
+    "amount": 2808,
+    "userId": "haruta"
   },
   {
-    "date": "2025-01-31",
-    "description": "test2",
-    "amount": 100000,
-    "userId": "admin",
-    "userName": "管理者",
-    "id": "2dd1c104-cb86-4fba-b99b-695f780a8ff5"
+    "id": "d46f9250-44db-4cd9-85d4-c0284e2b1ca6",
+    "date": "2025-02-06",
+    "description": "マット交換（ダスキン）",
+    "amount": 583,
+    "userId": "haruta"
   },
   {
-    "id": "e4cb9299-71b3-4d8a-9ca5-584299b7bd6b",
-    "date": "2025-02-03",
-    "description": "test00",
-    "amount": 100000,
-    "userId": "admin"
+    "id": "4ad07821-8feb-4b38-94d2-e0c19671e0ca",
+    "date": "2025-02-06",
+    "description": "住民税（板橋区）",
+    "amount": 22500,
+    "userId": "haruta"
   },
   {
-    "id": "f18fc9e2-6e4c-4c65-82e4-d04a4c1bff08",
-    "date": "2025-02-04",
-    "description": "test01",
-    "amount": 1000,
-    "userId": "admin"
+    "id": "b0633f05-6e54-4266-b5ef-08069248ce3a",
+    "date": "2025-02-06",
+    "description": "住民税（中野区）",
+    "amount": 27300,
+    "userId": "haruta"
+  },
+  {
+    "id": "d94566bb-dca3-48fb-b3b0-e3950ab0ceb3",
+    "date": "2025-02-06",
+    "description": "住民税（新宿区）",
+    "amount": 9300,
+    "userId": "haruta"
+  },
+  {
+    "id": "f24825fc-1cea-46c3-8d92-23b77c7aad74",
+    "date": "2025-01-01",
+    "description": "test（春田さん、消してOKです！）",
+    "amount": 10000,
+    "userId": "endo"
   }
 ]
